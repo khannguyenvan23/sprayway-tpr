@@ -1,0 +1,130 @@
+<html>
+<head>
+<title>.: TELL FRIEND :.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="../css/popup.css" rel="stylesheet" type="text/css" />
+<script language=javascript>
+	function checkform(f) {			
+		var re =/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,5})$/gi;
+		
+		var name_from = f.name_from.value;
+		if (name_from == '') {
+			alert('Vui lòng nhập tên người nhận');
+			f.name_from.focus();
+			return false;
+		}
+			 
+		email_from = f.email_from.value;
+		if (email_from == '') {
+			alert('Vui lòng nhập email người nhận');
+			f.email_from.focus();
+			return false;
+		}
+		if (email_from != '' && email_from.match(re)==null) {
+			alert('Email không hợp lệ');
+			f.email_from.focus();
+			return false;
+		}
+		
+		var name_to = f.name_to.value;
+		if (name_to == '') {
+			alert('Vui lòng nhập tên người nhận');
+			f.name_to.focus();
+			return false;
+		}
+			 
+		email_to = f.email_to.value;
+		if (email_to == '') {
+			alert('Vui lòng nhập email người gửi');
+			f.email_to.focus();
+			return false;
+		}
+		if (email_to != '' && email_to.match(re)==null) {
+			alert('Email không hợp lệ');
+			f.email_to.focus();
+			return false;
+		}
+		
+		var content = f.content.value;
+		if (content == '') {
+			alert('Vui lòng nhập nội dung đánh giá');
+			f.content.focus();
+			return false;
+		}
+		
+		if (f.h_code.value != f.security_code.value ) {
+			alert('Mã bảo vệ không chính xác');
+			f.security_code.focus();
+			return false;
+		}
+
+		return true;
+	}
+</script>
+
+</head>
+<body >
+
+<div   style="margin:5px" >
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td  height="30" class="font_f_title" ><img src="../images/mail_send.gif"  align="absmiddle"/>&nbsp;GIỚI THIỆU SẢN PHẨM CHO BẠN BÈ</td>
+	</tr>
+	<tr>
+		<td  bgcolor="#FF0000" height="2" ></td>
+	</tr>
+</table>
+<br />
+
+<table width="100%" border="0" cellspacing="1" cellpadding="1" bgcolor="#CCCCCC"><tr bgcolor='#ffffff'>
+					<td width=160 align=center><img  src="https://sprayway-tpr.com/vnt_upload/product/11_2016/thumbs/945_US_CF.jpg"  width='100'  ></td>
+					<td style='padding-left:5px;'>
+					<p>Mã số : <strong>945</strong> </p>
+					<p>Sản phẩm : <a href='https://sprayway-tpr.com/vn/product/272/silicone-spray.html' ><strong>945-DẦU SILICONE BÔI TRƠN DẠNG KHÔ</strong></a></p>
+					<p>Giá : <b style='color:#CC0000'>0 VNĐ</b></p></td>
+				 </tr></table>  
+<form action="" method="post" name="myFrom" id="myFrom" onSubmit="return checkform(this);">
+
+<table width="100%" border="0" cellspacing="3" cellpadding="3">
+  <tr>
+    <td><label for="name"><strong>Tên người gửi</strong> <font color="red">(*)</font> :</label>
+    <input class="textfiled" name="name_from" type="text" id="name_from"  style="width:100%" maxlength="250" value="" />
+    </td>
+    <td><label for="email"><strong>Email người gửi</strong> <font color="red">(*)</font> :</label>
+    <input class="textfiled" name="email_from" type="text" id="email_from"  style="width:100%" maxlength="250" value="" /></td>
+  </tr>
+  
+   <tr>
+    <td><label for="name"><strong>Tên người nhận</strong> <font color="red">(*)</font> :</label>
+    <input class="textfiled" name="name_to" type="text" id="name_to"  style="width:100%" maxlength="250" value="" />
+    </td>
+    <td><label for="email"><strong>Email người nhận</strong> <font color="red">(*)</font> :</label>
+    <input class="textfiled" name="email_to" type="text" id="email_to"  style="width:100%" maxlength="250" value="" /></td>
+  </tr>
+  
+  <tr>
+    <td colspan="2" ><label for="message"><strong>Lời nhắn</strong> <font color="red">(*)</font> :</label>
+     <textarea class="textarea" name="content"  style="width:100%" rows="5"  id="content"></textarea>
+     </td>
+  </tr>
+  
+  <tr>
+    <td align="left" nowrap>  
+    	<strong>Mã bảo vệ :</strong>  <font color="red">(*)</font> <input id="security_code" name="security_code" size="15" maxlength="6" class="textfiled"/>&nbsp;<img src="../../../includes/do_image.php?code=jNzcyMM5" align="absmiddle" />
+        
+    </td>
+    <td align="right">  
+    		<input type="hidden" name="h_code" value="772239">
+        <button  id="btnSend" name="btnSend" type="submit" class="btn" value="Gửi" ><span >Gửi</span></button>&nbsp; 
+        <button  id="btnReset" name="btnReset" type="reset" class="btn" value="Hủy bỏ" onClick="self.parent.tb_remove();" ><span >Hủy bỏ</span></button>   </td>
+  </tr>
+  
+</table>
+ 
+  
+  </form>
+		 
+</div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import CartLink from "./CartLink";
+import CustomerAccountLink from "./CustomerAccountLink";
+
+export default function SiteHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState("");
+  const closeMenu = () => setIsOpen(false);
+
+  function submitSearch(event) {
+    event.preventDefault();
+    const keyword = search.trim();
+    window.location.href = keyword ? `/products?q=${encodeURIComponent(keyword)}` : "/products";
+    closeMenu();
+  }
+
+  return (
+    <header className="site-header">
+      <div className="container nav">
+        <Link className="logo" href="/" onClick={closeMenu}>
+          <img className="logo-image" src="/logo-text-01-cropped.png" alt="Sprayway TPR" />
+        </Link>
+
+        <form className="header-search" onSubmit={submitSearch}>
+          <input
+            aria-label="Tìm kiếm sản phẩm"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder="Tìm sản phẩm, SKU, thương hiệu..."
+          />
+          <button type="submit">Tìm</button>
+        </form>
+
+        <button
+          className="menu-toggle"
+          type="button"
+          aria-label={isOpen ? "Đóng menu" : "Mở menu"}
+          aria-expanded={isOpen}
+          aria-controls="primary-nav"
+          onClick={() => setIsOpen((value) => !value)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <nav id="primary-nav" className={`nav-list${isOpen ? " open" : ""}`} aria-label="Chính">
+          <form className="mobile-search" onSubmit={submitSearch}>
+            <input
+              aria-label="Tìm kiếm sản phẩm trên điện thoại"
+              value={search}
+              onChange={(event) => setSearch(event.target.value)}
+              placeholder="Tìm sản phẩm..."
+            />
+            <button type="submit">Tìm</button>
+          </form>
+          <Link href="/" onClick={closeMenu}>Trang chủ</Link>
+          <Link href="/products" onClick={closeMenu}>Sản phẩm</Link>
+          <a href="/#brands" onClick={closeMenu}>Thương hiệu</a>
+          <a href="/#applications" onClick={closeMenu}>Ứng dụng</a>
+          <CustomerAccountLink onClick={closeMenu} />
+          <CartLink onClick={closeMenu} />
+          <Link href="/checkout" onClick={closeMenu}>Thanh toán</Link>
+          <a className="cta" href="tel:0901890811" onClick={closeMenu}>Liên hệ báo giá</a>
+        </nav>
+      </div>
+    </header>
+  );
+}
