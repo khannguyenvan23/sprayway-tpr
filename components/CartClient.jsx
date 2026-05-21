@@ -96,7 +96,9 @@ function CartItemImage({ item }) {
 }
 
 function imageSrc(image) {
-  if (image.startsWith("/assets/")) return image;
+  if (image.startsWith("/") || image.startsWith("http://") || image.startsWith("https://")) {
+    return image;
+  }
   const file = image.split("/").pop();
   return file ? `/assets/${file}` : "";
 }
