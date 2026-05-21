@@ -143,26 +143,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section white">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <h2 className="section-title">Danh mục sản phẩm</h2>
-              <p className="section-copy">Gom lại từ dữ liệu website cũ để khách hàng tìm đúng nhóm nhanh hơn.</p>
-            </div>
-            <Link className="button primary" href="/products">Xem tất cả sản phẩm</Link>
-          </div>
-          <div className="category-grid">
-            {categories.slice(0, 8).map((category) => (
-              <Link className="category-tile" href={`/products?category=${encodeURIComponent(category.name)}`} key={category.name}>
-                <strong>{category.name}</strong>
-                <span>{category.count} sản phẩm</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="brands" className="section">
         <div className="container">
           <div className="section-head">
@@ -220,3 +200,4 @@ export default async function HomePage() {
     </SiteShell>
   );
 }
+
