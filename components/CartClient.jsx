@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { formatPrice, isProductPurchasable, productStatusLabel } from "@/lib/product-utils";
 import { useCart } from "./CartProvider";
 
@@ -32,7 +33,7 @@ export default function CartClient() {
           return (
             <article className={`cart-item${purchasable ? "" : " unavailable"}`} key={item.slug}>
               <Link className="cart-item-media" href={`/products/${item.slug}`}>
-                {item.image ? <img src={imageSrc(item.image)} alt={item.name} /> : null}
+                <CartItemImage item={item} />
               </Link>
               <div className="cart-item-body">
                 <Link href={`/products/${item.slug}`}>
@@ -81,6 +82,17 @@ export default function CartClient() {
       </aside>
     </div>
   );
+}
+
+function CartItemImage({ item }) {
+  const [hasError, setHasError] = useState(false);
+  const src = item.image ? imageSrc(item.image) : "";
+
+  if (!src || hasError) {
+    return <span className="cart-item-image-fallback">Ảnh</span>;
+  }
+
+  return <img src={src} alt={item.name} onError={() => setHasError(true)} />;
 }
 
 function imageSrc(image) {
