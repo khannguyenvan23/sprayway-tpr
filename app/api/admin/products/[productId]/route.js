@@ -46,6 +46,27 @@ export async function PATCH(request, { params }) {
   }
 }
 
+export async function DELETE(request, { params }) {
+  const auth = await requireAdmin(request);
+  if (auth.error) {
+    return NextResponse.json({ error: auth.error }, { status: auth.status });
+  }
+
+  try {
+    const supabase = createSupabaseServiceClient();
+    const { error } = await supabase.from("products").delete().eq("id", params.productId);
+
+    if (error) throw error;
+
+    return NextResponse.json({ ok: true });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error.message || "KhÃ´ng thá»ƒ xÃ³a sáº£n pháº©m." },
+      { status: 500 },
+    );
+  }
+}
+
 async function ensureRelations(supabase, brand, category) {
   const brandName = String(brand || "").trim();
   const categoryName = String(category || "").trim();
@@ -98,4 +119,3 @@ function buildPatchPayload(body, relationIds) {
 
   return Object.fromEntries(Object.entries(payload).filter(([, value]) => value !== undefined));
 }
-

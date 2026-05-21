@@ -5,6 +5,7 @@ import { adminEmailDefault, clearAdminSession, readAdminSession, saveAdminSessio
 import {
   createAdminCategory,
   createAdminProduct,
+  deleteAdminProduct,
   listAdminCategories,
   listAdminProducts,
   signInAdmin,
@@ -49,6 +50,7 @@ export default function AdminProductsClient() {
   const [isCreating, setIsCreating] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const categoryOptions = useMemo(() => {
     const fromProducts = products.map((product) => product.category).filter(Boolean);
@@ -193,6 +195,40 @@ export default function AdminProductsClient() {
       setMessage(error.message || "Không thể lưu sản phẩm.");
     } finally {
       setIsSaving(false);
+    }
+  }
+
+  async function deleteProduct() {
+    if (!selected || !session?.idToken || isDeleting) return;
+    const confirmed = window.confirm(`Xóa sản phẩm "${selected.name}"?`);
+    if (!confirmed) return;
+
+    setIsDeleting(true);
+    setMessage("");
+    try {
+      await deleteAdminProduct(session.idToken, selected.firestoreId);
+      const nextProducts = products.filter((product) => product.firestoreId !== selected.firestoreId);
+      setProducts(nextProducts);
+      setSelected(nextProducts[0] || null);
+      setDraft(nextProducts[0] ? {
+        name: nextProducts[0].name || "",
+        sku: nextProducts[0].sku || "",
+        price: nextProducts[0].price || 0,
+        stock: nextProducts[0].stock || 0,
+        brand: nextProducts[0].brand || "",
+        category: nextProducts[0].category || "",
+        status: nextProducts[0].status || "needs_review",
+        featured: Boolean(nextProducts[0].featured),
+        shortDescription: nextProducts[0].shortDescription || "",
+        fullDescription: nextProducts[0].fullDescription || "",
+        image: nextProducts[0].image || nextProducts[0].assetPath || "",
+      } : null);
+      setIsCreating(false);
+      setMessage("Đã xóa sản phẩm.");
+    } catch (error) {
+      setMessage(error.message || "Không thể xóa sản phẩm.");
+    } finally {
+      setIsDeleting(false);
     }
   }
 
@@ -354,6 +390,11 @@ export default function AdminProductsClient() {
             <button className="button primary" type="submit" disabled={isSaving}>
               {isSaving ? "Đang lưu..." : isCreating ? "Tạo sản phẩm" : "Lưu sản phẩm"}
             </button>
+            {!isCreating ? (
+              <button className="button ghost" type="button" onClick={deleteProduct} disabled={isDeleting || isSaving}>
+                {isDeleting ? "Đang xóa..." : "Xóa sản phẩm"}
+              </button>
+            ) : null}
           </form>
         ) : (
           <div className="empty">Chọn một sản phẩm để chỉnh sửa hoặc bấm “Thêm sản phẩm”.</div>

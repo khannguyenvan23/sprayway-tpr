@@ -151,8 +151,15 @@ function buildSku(product) {
     .replace(/[^a-zA-Z0-9]/g, "")
     .slice(0, 4)
     .toUpperCase() || "SPW";
-  const code = String(product.code || product.id || "000").replace(/[^a-zA-Z0-9]/g, "").toUpperCase();
-  return `${brand}-${code.padStart(3, "0")}`;
+  const code = String(product.code || product.id || "000")
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toUpperCase()
+    .slice(0, 8);
+  const source = String(product.id || product.slug || "000")
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .toUpperCase()
+    .slice(-6);
+  return `${brand}-${code.padStart(3, "0")}-${source}`;
 }
 
 function estimatePrice(product) {
