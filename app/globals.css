@@ -2572,6 +2572,228 @@ img {
   box-shadow: 0 10px 28px rgba(23, 32, 51, 0.06);
 }
 
+.about-page {
+  background: #fff;
+  color: #111827;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-hero {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 80px 24px;
+}
+
+.about-tag {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 4px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.about-hero h1 {
+  max-width: 760px;
+  margin: 0 0 20px;
+  color: #111827;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.about-hero h1 em {
+  color: #1a56db;
+  font-style: normal;
+}
+
+.about-hero p,
+.about-value-desc {
+  max-width: 620px;
+  margin: 0;
+  color: #4b5563;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.about-section {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 64px 24px;
+}
+
+.about-section-label {
+  margin: 0 0 32px;
+  color: #9ca3af;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.about-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.about-card-grid-two {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.about-card {
+  padding: 22px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #fff;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.about-card:hover {
+  border-color: #9ca3af;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.about-card-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 14px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: #1a56db;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.about-card h2 {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.about-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.about-stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.about-stat {
+  padding: 18px 16px;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.about-stat-value {
+  margin-bottom: 4px;
+  color: #1a56db;
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.about-stat-label {
+  color: #9ca3af;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.about-quote {
+  margin: 0 0 20px;
+  padding-left: 20px;
+  border-left: 2px solid #1a56db;
+}
+
+.about-quote p {
+  margin: 0;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.about-value-desc {
+  margin-bottom: 28px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.about-pill-label {
+  margin: 0 0 12px;
+  color: #9ca3af;
+  font-size: 12px;
+}
+
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.about-pills span {
+  padding: 6px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 999px;
+  color: #4b5563;
+  font-size: 12px;
+}
+
+.about-cta-section {
+  padding: 56px 24px;
+}
+
+.about-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-btn-primary,
+.about-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.about-btn-primary {
+  padding: 0 24px;
+  background: #1a56db;
+  color: #fff;
+}
+
+.about-btn-primary:hover {
+  background: #1e40af;
+}
+
+.about-btn-ghost {
+  color: #6b7280;
+}
+
+.about-btn-ghost:hover {
+  color: #111827;
+}
+
 @media (max-width: 1120px) {
   .header-search {
     max-width: 320px;
@@ -2611,6 +2833,22 @@ img {
 }
 
 @media (max-width: 620px) {
+  .about-hero {
+    padding: 56px 20px;
+  }
+
+  .about-section {
+    padding: 48px 20px;
+  }
+
+  .about-stat-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-stat-row .about-stat:last-child {
+    grid-column: span 2;
+  }
+
   .floating-contact {
     right: 10px;
     gap: 8px;
