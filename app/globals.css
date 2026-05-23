@@ -158,7 +158,7 @@ img {
 .hero-grid {
   min-height: 560px;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: 42px;
   align-items: center;
   padding: 54px 0 44px;

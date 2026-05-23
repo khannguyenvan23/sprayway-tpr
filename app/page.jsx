@@ -115,7 +115,7 @@ const applications = [
 ];
 
 export default async function HomePage() {
-  const { categories, brands, products } = await getCatalog();
+  const { brands } = await getCatalog();
   const featured = await getFeaturedProducts(8);
 
   return (
@@ -133,12 +133,6 @@ export default async function HomePage() {
               <Link className="button primary" href="/products">Xem sản phẩm</Link>
               <a className="button secondary" href="tel:02862680639">Gọi tư vấn</a>
             </div>
-          </div>
-          <div className="hero-panel">
-            <div className="stat"><strong>{products.length}</strong><span>Sản phẩm đã đưa vào catalog</span></div>
-            <div className="stat"><strong>{categories.length}</strong><span>Nhóm danh mục chính</span></div>
-            <div className="stat"><strong>{brands.length}</strong><span>Thương hiệu và dòng sản phẩm</span></div>
-            <div className="stat"><strong>24/7</strong><span>Liên hệ nhanh qua hotline, Zalo, WhatsApp</span></div>
           </div>
         </div>
       </section>
