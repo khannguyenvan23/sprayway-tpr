@@ -105,6 +105,44 @@ img {
   padding: 11px 14px;
 }
 
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.language-switcher button {
+  min-width: 34px;
+  height: 30px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #26324a;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.language-switcher button.active {
+  background: var(--brand);
+  color: #fff;
+}
+
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-te-gadget {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
 .cart-nav-link {
   position: relative;
   display: inline-flex;

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,6 +61,7 @@ export default function SiteHeader() {
           <a href="/#brands" onClick={closeMenu}>Thương hiệu</a>
           <a href="/#applications" onClick={closeMenu}>Ứng dụng</a>
           <Link href="/lien-he" onClick={closeMenu}>Liên hệ</Link>
+          <LanguageSwitcher />
           <Link className="cta" href="/gioi-thieu" onClick={closeMenu}>Giới thiệu</Link>
         </nav>
       </div>
