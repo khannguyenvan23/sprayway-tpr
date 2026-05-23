@@ -29,6 +29,16 @@ function triggerGoogleTranslate(nextLanguage) {
   return true;
 }
 
+function removeTranslateChrome() {
+  document.documentElement.style.top = "0px";
+  document.body.style.top = "0px";
+  document.body.style.position = "static";
+  document.querySelectorAll(".goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, iframe.skiptranslate").forEach((node) => {
+    node.style.display = "none";
+    node.style.visibility = "hidden";
+  });
+}
+
 export default function LanguageSwitcher() {
   const [language, setLanguage] = useState("vi");
 
@@ -56,6 +66,9 @@ export default function LanguageSwitcher() {
 
     const cookie = document.cookie.split("; ").find((item) => item.startsWith("googtrans="));
     if (cookie?.includes("/en")) setLanguage("en");
+
+    const cleanup = window.setInterval(removeTranslateChrome, 500);
+    return () => window.clearInterval(cleanup);
   }, []);
 
   function switchLanguage(nextLanguage) {
@@ -63,6 +76,8 @@ export default function LanguageSwitcher() {
     setTranslateCookie(nextLanguage === "en" ? "/vi/en" : "/vi/vi");
 
     const translated = triggerGoogleTranslate(nextLanguage);
+    window.setTimeout(removeTranslateChrome, 200);
+    window.setTimeout(removeTranslateChrome, 900);
     if (!translated) {
       window.setTimeout(() => {
         if (!triggerGoogleTranslate(nextLanguage)) window.location.reload();
