@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import ProductCard from "@/components/ProductCard";
+import HomeCarousel from "@/components/HomeCarousel";
 import { getCatalog, getFeaturedProducts } from "@/lib/catalog";
 
 const applications = [
@@ -120,22 +121,7 @@ export default async function HomePage() {
 
   return (
     <SiteShell>
-      <section className="hero">
-        <div className="container hero-grid">
-          <div>
-            <div className="eyebrow">Nhà phân phối hóa chất và vật tư công nghiệp</div>
-            <h1>Bình xịt công nghiệp, keo xịt và thiết bị ngành may tại Việt Nam</h1>
-            <p>
-              Cung cấp sản phẩm Sprayway, TPR, LDH, ANC và các dòng vật tư chuyên dụng cho ngành may,
-              in lụa, nội thất, ô tô và bảo trì công nghiệp.
-            </p>
-            <div className="hero-actions">
-              <Link className="button primary" href="/products">Xem sản phẩm</Link>
-              <a className="button secondary" href="tel:02862680639">Gọi tư vấn</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeCarousel />
 
       <section id="brands" className="section">
         <div className="container">
@@ -194,4 +180,5 @@ export default async function HomePage() {
     </SiteShell>
   );
 }
+
 
