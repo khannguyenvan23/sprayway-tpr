@@ -1,41 +1,44 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 
 const slides = [
   {
-    eyebrow: "Nhà phân phối hóa chất và vật tư công nghiệp",
-    title: "Bình xịt công nghiệp cho xưởng may, bảo trì và sản xuất",
-    copy: "Tập trung các dòng Sprayway, TPR, LDH và ANC cho vệ sinh, bôi trơn, chống rỉ, keo xịt và xử lý bề mặt trong môi trường công nghiệp.",
+    eyebrow: "Giải pháp tổng thể",
+    title: "Chuyên gia làm sạch & bảo trì ngành may",
+    copy: "Từ khâu định vị vải, thêu công nghiệp đến xử lý lỗi thành phẩm và bảo trì máy móc. QE Agency cung cấp nhóm hóa chất giúp quy trình sản xuất sạch, nhanh và ổn định.",
+    bullets: [
+      "An toàn cho nhiều bề mặt vải và thiết bị",
+      "Hiệu quả tức thì, hạn chế để lại dấu vết",
+      "Catalog rõ mã, dễ lọc theo thương hiệu",
+    ],
     image: "/assets/8206026da8c442cd.png",
-    primaryHref: "/products?brand=Sprayway",
-    primaryLabel: "Xem dòng Sprayway",
-    secondaryHref: "/products",
-    secondaryLabel: "Toàn bộ sản phẩm",
-    metrics: ["Bình xịt", "Keo xịt", "Bảo trì"],
+    href: "/products?brand=Sprayway",
   },
   {
-    eyebrow: "Giải pháp cho ngành may mặc",
-    title: "Vật tư ngành may cho chuyền sản xuất cần thao tác nhanh",
-    copy: "Keo định vị, phấn may, tẩy vết bẩn, kéo và vật tư phụ trợ giúp xưởng giảm thời gian tìm hàng và đặt đúng nhóm sản phẩm.",
-    image: "/assets/8c0fc45c2053b7d9.png",
-    primaryHref: `/products?application=${encodeURIComponent("May Mặc")}`,
-    primaryLabel: "Sản phẩm ngành may",
-    secondaryHref: "tel:0901890811",
-    secondaryLabel: "Tư vấn nhanh",
-    metrics: ["May mặc", "Tẩy vết", "Định vị"],
+    eyebrow: "Dòng tẩy rửa",
+    title: "Xử lý vết dầu, bụi bẩn và lỗi bề mặt nhanh",
+    copy: "Các dòng chai xịt tẩy rửa hỗ trợ xưởng may, in lụa, nội thất và bảo trì công nghiệp trong những tình huống cần thao tác nhanh, sạch và dễ kiểm soát.",
+    bullets: [
+      "Phù hợp quy trình kiểm hàng và hoàn thiện",
+      "Dễ tra cứu theo SKU, thương hiệu, danh mục",
+      "Tư vấn chọn đúng mã theo bề mặt sử dụng",
+    ],
+    image: "/assets/0031a095007bb025.png",
+    href: "/products?category=Bình xịt công nghiệp Sprayway",
   },
   {
-    eyebrow: "Keo xịt và hóa chất TPR",
-    title: "Catalog hóa chất rõ nhóm, dễ lọc theo thương hiệu và ứng dụng",
-    copy: "Tìm sản phẩm theo SKU, thương hiệu, tồn kho và nhóm sử dụng, sau đó liên hệ hotline để được tư vấn và báo giá nhanh cho doanh nghiệp.",
-    image: "/assets/4bff77d67c5f5d33.png",
-    primaryHref: "/products?brand=TPR",
-    primaryLabel: "Xem TPR",
-    secondaryHref: "tel:0901890811",
-    secondaryLabel: "Liên hệ báo giá",
-    metrics: ["Hotline", "SKU", "Báo giá"],
+    eyebrow: "Keo xịt & định vị",
+    title: "Giữ form, định vị vật liệu và tối ưu chuyền sản xuất",
+    copy: "Nhóm keo xịt, hóa chất TPR và vật tư ngành may giúp giảm thời gian căn chỉnh, hỗ trợ thao tác dán tạm, cố định chi tiết và xử lý sản phẩm trước khi hoàn thiện.",
+    bullets: [
+      "Hỗ trợ ngành may, thêu, in lụa và quảng cáo",
+      "Nhiều mã sản phẩm cho từng nhu cầu thao tác",
+      "Liên hệ nhanh để được gợi ý sản phẩm phù hợp",
+    ],
+    image: "/assets/12923f274ee76bfa.png",
+    href: "/products?brand=TPR",
   },
 ];
 
@@ -46,48 +49,53 @@ export default function HomeCarousel() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveIndex((currentIndex) => (currentIndex + 1) % slides.length);
-    }, 6000);
+    }, 6500);
 
     return () => window.clearInterval(timer);
   }, []);
 
-  const productPreview = useMemo(() => {
-    return activeSlide.metrics.join(" / ");
-  }, [activeSlide]);
+  function goToSlide(direction) {
+    setActiveIndex((currentIndex) => (currentIndex + direction + slides.length) % slides.length);
+  }
 
   return (
-    <section className="hero-carousel" aria-label="Giới thiệu QE Agency">
-      <div className="container hero-carousel-grid">
-        <div className="hero-carousel-copy">
-          <div className="eyebrow">{activeSlide.eyebrow}</div>
-          <h1>{activeSlide.title}</h1>
-          <p>{activeSlide.copy}</p>
-          <div className="hero-actions">
-            <Link className="button primary" href={activeSlide.primaryHref}>{activeSlide.primaryLabel}</Link>
-            <Link className="button secondary" href={activeSlide.secondaryHref}>{activeSlide.secondaryLabel}</Link>
+    <section className="hero-carousel" aria-label="Giới thiệu giải pháp QE Agency">
+      <div className="container">
+        <div className="hero-carousel-shell">
+          <div className="hero-carousel-controls" aria-label="Điều hướng carousel">
+            <button type="button" onClick={() => goToSlide(-1)} aria-label="Slide trước">‹</button>
+            <button type="button" onClick={() => goToSlide(1)} aria-label="Slide tiếp theo">›</button>
           </div>
-          <div className="carousel-tabs" role="tablist" aria-label="Chọn nội dung giới thiệu">
+
+          <div className="hero-carousel-grid">
+            <div className="hero-carousel-copy">
+              <div className="eyebrow">{activeSlide.eyebrow}</div>
+              <h1>{activeSlide.title}</h1>
+              <p>{activeSlide.copy}</p>
+              <ul className="hero-bullets">
+                {activeSlide.bullets.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <Link className="button primary hero-primary-action" href={activeSlide.href}>Khám phá danh mục</Link>
+            </div>
+
+            <div className="hero-carousel-media">
+              <img src={activeSlide.image} alt="" />
+            </div>
+          </div>
+
+          <div className="carousel-dots" aria-label="Chọn slide">
             {slides.map((slide, index) => (
               <button
-                aria-selected={activeIndex === index}
+                aria-label={`Xem ${slide.eyebrow}`}
+                aria-pressed={activeIndex === index}
                 className={activeIndex === index ? "active" : ""}
                 key={slide.title}
                 onClick={() => setActiveIndex(index)}
-                role="tab"
                 type="button"
-              >
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                {slide.metrics[0]}
-              </button>
+              />
             ))}
-          </div>
-        </div>
-
-        <div className="hero-carousel-media">
-          <img src={activeSlide.image} alt="" />
-          <div className="hero-carousel-badge">
-            <span>Nhóm chính</span>
-            <strong>{productPreview}</strong>
           </div>
         </div>
       </div>

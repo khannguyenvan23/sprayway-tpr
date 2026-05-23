@@ -8,7 +8,7 @@ export const metadata = {
 };
 
 export default async function ProductsPage() {
-  const { products, categories, brands, source } = await getCatalog();
+  const { products, categories, brands } = await getCatalog();
 
   return (
     <SiteShell>
@@ -19,8 +19,7 @@ export default async function ProductsPage() {
             <div>
               <h1 className="section-title">Tất cả sản phẩm</h1>
               <p className="section-copy">
-                Chọn nhanh theo thương hiệu, danh mục, giá và tồn kho. Dữ liệu đang đọc từ
-                <strong> {source === "firestore" ? "Firebase Firestore" : "data/catalog/products.json"}</strong>.
+                Chọn nhanh theo thương hiệu, danh mục và nhu cầu sử dụng để tìm đúng sản phẩm cần tư vấn.
               </p>
             </div>
             <a className="button primary" href="tel:0901890811">Cần tư vấn?</a>

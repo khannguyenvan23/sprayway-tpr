@@ -2,6 +2,7 @@ import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import ProductCard from "@/components/ProductCard";
 import HomeCarousel from "@/components/HomeCarousel";
+import HomeIndustrySections from "@/components/HomeIndustrySections";
 import { getCatalog, getFeaturedProducts } from "@/lib/catalog";
 
 const applications = [
@@ -122,6 +123,7 @@ export default async function HomePage() {
   return (
     <SiteShell>
       <HomeCarousel />
+      <HomeIndustrySections />
 
       <section id="brands" className="section">
         <div className="container">
