@@ -1,3 +1,5 @@
+import SiteShell from "@/components/SiteShell";
+
 export const metadata = {
   title: "Về Chúng Tôi | QE Agency Trading",
   description:
@@ -43,20 +45,21 @@ const digitalCards = [
 
 export default function AboutPage() {
   return (
-    <main className="about-page">
-      <section className="about-hero">
-        <div className="about-container">
-          <span className="about-tag">Về chúng tôi</span>
-          <h1>
-            QE Agency Trading - <em>giải pháp thực chiến</em>
-            <br />
-            cho doanh nghiệp tăng trưởng
-          </h1>
-          <p>
-            Đơn vị kết hợp hệ sinh thái sản phẩm công nghiệp chuyên dụng và giải pháp kỹ thuật số toàn diện, giúp doanh nghiệp tối ưu vận hành tại xưởng và phát triển trên nền tảng số.
-          </p>
-        </div>
-      </section>
+    <SiteShell>
+      <main className="about-page">
+        <section className="about-hero">
+          <div className="about-container">
+            <span className="about-tag">Về chúng tôi</span>
+            <h1>
+              QE Agency Trading - <em>giải pháp thực chiến</em>
+              <br />
+              cho doanh nghiệp tăng trưởng
+            </h1>
+            <p>
+              Đơn vị kết hợp hệ sinh thái sản phẩm công nghiệp chuyên dụng và giải pháp kỹ thuật số toàn diện, giúp doanh nghiệp tối ưu vận hành tại xưởng và phát triển trên nền tảng số.
+            </p>
+          </div>
+        </section>
 
       <section className="about-section">
         <div className="about-container">
@@ -123,14 +126,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-cta-section">
-        <div className="about-container">
-          <div className="about-cta-row">
-            <a href="tel:0901890811" className="about-btn-primary">Nhận tư vấn miễn phí</a>
-            <a href="/products" className="about-btn-ghost">Xem hệ sinh thái sản phẩm</a>
+        <section className="about-cta-section">
+          <div className="about-container">
+            <div className="about-cta-row">
+              <a href="tel:0901890811" className="about-btn-primary" aria-label="Gọi Hotline: 0901890811">Nhận tư vấn miễn phí</a>
+              <a href="https://qeagencygroup.com/" className="about-btn-ghost" target="_blank" rel="noreferrer">Xem hệ sinh thái sản phẩm</a>
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </SiteShell>
   );
 }

@@ -59,6 +59,7 @@ export default function SiteHeader() {
           <Link href="/products" onClick={closeMenu}>Sản phẩm</Link>
           <a href="/#brands" onClick={closeMenu}>Thương hiệu</a>
           <a href="/#applications" onClick={closeMenu}>Ứng dụng</a>
+          <Link href="/lien-he" onClick={closeMenu}>Liên hệ</Link>
           <Link className="cta" href="/gioi-thieu" onClick={closeMenu}>Giới thiệu</Link>
         </nav>
       </div>
