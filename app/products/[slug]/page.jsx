@@ -4,7 +4,7 @@ import SiteShell from "@/components/SiteShell";
 import ProductCard from "@/components/ProductCard";
 import ProductGallery from "@/components/ProductGallery";
 import { getCatalog, getProductBySlug } from "@/lib/catalog";
-import { formatPrice, isProductPurchasable, productStatusLabel, productSummary } from "@/lib/product-utils";
+import { productStatusLabel, productSummary } from "@/lib/product-utils";
 
 export async function generateStaticParams() {
   const { products } = await getCatalog();
@@ -31,8 +31,6 @@ export default async function ProductDetailPage({ params }) {
   const related = products
     .filter((item) => item.id !== product.id && (item.category === product.category || item.brand === product.brand))
     .slice(0, 4);
-  const purchasable = isProductPurchasable(product);
-
   return (
     <SiteShell>
       <section className="section white">
@@ -52,20 +50,14 @@ export default async function ProductDetailPage({ params }) {
             <h1>{product.name}</h1>
             <p className="detail-summary">{productSummary(product)}</p>
             <div className="detail-commerce">
-              <strong>{formatPrice(product.price, product.currency)}</strong>
               <span>SKU: {product.sku}</span>
-              <span>{purchasable ? `Còn hàng: ${product.stock}` : "Tạm ngừng mua"}</span>
             </div>
             <div className="detail-actions">
-              <a className="button primary" href="tel:0901890811">Đặt hàng qua hotline</a>
-              <a className="button secondary light" href="tel:0901890811">Mua hàng trực tiếp qua hotline</a>
-              <a className="button ghost" href="tel:0901890811">Liên hệ báo giá</a>
+              <a className="button primary" href="tel:0901890811">Liên hệ báo giá</a>
             </div>
             <div className="spec-list">
               <div className="spec-row"><span>Mã sản phẩm</span><strong>{product.code || "Đang cập nhật"}</strong></div>
               <div className="spec-row"><span>SKU</span><strong>{product.sku}</strong></div>
-              <div className="spec-row"><span>Giá bán</span><strong>{formatPrice(product.price, product.currency)}</strong></div>
-              <div className="spec-row"><span>Tồn kho</span><strong>{product.stock}</strong></div>
               <div className="spec-row"><span>Thương hiệu</span><strong>{product.brand}</strong></div>
               <div className="spec-row"><span>Danh mục</span><strong>{product.category}</strong></div>
               <div className="spec-row"><span>Nguồn dữ liệu</span><a href={product.sourceUrl} target="_blank">Website cũ</a></div>

@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import CustomerAccountLink from "./CustomerAccountLink";
 
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,9 +59,7 @@ export default function SiteHeader() {
           <Link href="/products" onClick={closeMenu}>Sản phẩm</Link>
           <a href="/#brands" onClick={closeMenu}>Thương hiệu</a>
           <a href="/#applications" onClick={closeMenu}>Ứng dụng</a>
-          <CustomerAccountLink onClick={closeMenu} />
-          <a href="tel:0901890811" onClick={closeMenu}>Đặt hàng qua hotline</a>
-          <a className="cta" href="tel:0901890811" onClick={closeMenu}>Mua hàng trực tiếp qua hotline</a>
+          <a className="cta" href="tel:0901890811" onClick={closeMenu}>Liên hệ</a>
         </nav>
       </div>
     </header>

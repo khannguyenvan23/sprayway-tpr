@@ -25,9 +25,6 @@ export default function ProductFilters({ products, categories, brands }) {
     });
 
     return nextProducts.sort((left, right) => {
-      if (sort === "price-asc") return Number(left.price || 0) - Number(right.price || 0);
-      if (sort === "price-desc") return Number(right.price || 0) - Number(left.price || 0);
-      if (sort === "stock-desc") return Number(right.stock || 0) - Number(left.stock || 0);
       if (sort === "name-asc") return left.name.localeCompare(right.name, "vi");
       return Number(right.featured || 0) - Number(left.featured || 0);
     });
@@ -88,9 +85,6 @@ export default function ProductFilters({ products, categories, brands }) {
           <label htmlFor="sort">Sắp xếp</label>
           <select id="sort" value={sort} onChange={(event) => setSort(event.target.value)}>
             <option value="featured">Nổi bật</option>
-            <option value="price-asc">Giá thấp đến cao</option>
-            <option value="price-desc">Giá cao đến thấp</option>
-            <option value="stock-desc">Tồn kho nhiều</option>
             <option value="name-asc">Tên A-Z</option>
           </select>
         </div>
@@ -113,7 +107,7 @@ export default function ProductFilters({ products, categories, brands }) {
             <strong>{filtered.length}</strong> <span className="muted">sản phẩm phù hợp</span>
           </div>
           <div className="catalog-toolbar-actions">
-            <span className="muted">Có giá, SKU, tồn kho và hotline tư vấn</span>
+            <span className="muted">Có SKU, thương hiệu và thông tin tư vấn</span>
           </div>
         </div>
         {filtered.length ? (

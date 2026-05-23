@@ -34,7 +34,7 @@ const slides = [
     primaryHref: "/products?brand=TPR",
     primaryLabel: "Xem TPR",
     secondaryHref: "tel:0901890811",
-    secondaryLabel: "Đặt hàng qua hotline",
+    secondaryLabel: "Liên hệ báo giá",
     metrics: ["Hotline", "SKU", "Báo giá"],
   },
 ];

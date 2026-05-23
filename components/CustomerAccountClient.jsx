@@ -33,8 +33,8 @@ export default function CustomerAccountClient() {
         <h1>{session.email}</h1>
         <p>Tài khoản đang đăng nhập trên thiết bị này. Các tính năng lịch sử đơn hàng và địa chỉ giao hàng có thể nối tiếp ở bước sau.</p>
         <div className="account-actions">
-          <a className="button primary" href="tel:0901890811">Đặt hàng qua hotline</a>
-          <a className="button secondary light" href="tel:0901890811">Mua hàng trực tiếp qua hotline</a>
+          <a className="button primary" href="tel:0901890811">Liên hệ báo giá</a>
+          <Link className="button secondary light" href="/products">Xem sản phẩm</Link>
           <button className="button ghost" type="button" onClick={signOut}>Đăng xuất</button>
         </div>
       </section>

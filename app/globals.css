@@ -2346,13 +2346,14 @@ img {
 
 .product-card-actions {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   gap: 8px;
   align-items: center;
 }
 
 .compact-detail {
   min-height: 38px;
+  width: 100%;
   padding: 0 12px;
   font-size: 13px;
 }
