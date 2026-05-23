@@ -2637,15 +2637,28 @@ img {
   border-left: 1px solid #e2ebd9;
   border-radius: 0;
   background:
-    radial-gradient(circle at 50% 45%, rgba(120, 150, 74, 0.12), transparent 48%),
+    radial-gradient(circle at 50% 42%, rgba(120, 150, 74, 0.18), transparent 50%),
     #fbfdf8;
+  padding: 28px;
+}
+
+.hero-carousel-image-frame {
+  width: min(82%, 330px);
+  height: 360px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #dfe8d7;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 34px rgba(68, 88, 54, 0.14);
+  overflow: hidden;
 }
 
 .hero-carousel-media img {
-  width: min(72%, 330px);
-  max-height: 310px;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 18px 26px rgba(23, 32, 51, 0.14));
+  filter: none;
 }
 
 .hero-carousel-controls {
@@ -2810,6 +2823,11 @@ img {
     border-left: 0;
     border-top: 1px solid #eef2f7;
   }
+
+  .hero-carousel-image-frame {
+    width: min(78%, 280px);
+    height: 300px;
+  }
 }
 
 @media (max-width: 620px) {
@@ -2833,8 +2851,9 @@ img {
     min-height: 250px;
   }
 
-  .hero-carousel-media img {
-    max-height: 230px;
+  .hero-carousel-image-frame {
+    width: min(82%, 220px);
+    height: 230px;
   }
 
   .home-feature-section {

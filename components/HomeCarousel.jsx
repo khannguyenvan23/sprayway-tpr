@@ -13,7 +13,7 @@ const slides = [
       "Hiệu quả tức thì, hạn chế để lại dấu vết",
       "Catalog rõ mã, dễ lọc theo thương hiệu",
     ],
-    image: "/assets/0031a095007bb025.png",
+    image: "/carousel/img/banner1.jfif",
     href: "/products?brand=Sprayway",
   },
   {
@@ -25,7 +25,7 @@ const slides = [
       "Dễ tra cứu theo SKU, thương hiệu, danh mục",
       "Tư vấn chọn đúng mã theo bề mặt sử dụng",
     ],
-    image: "/assets/0c2af258d3ca3c4e.png",
+    image: "/carousel/img/banner1.jfif",
     href: "/products?category=Bình xịt công nghiệp Sprayway",
   },
   {
@@ -37,7 +37,7 @@ const slides = [
       "Nhiều mã sản phẩm cho từng nhu cầu thao tác",
       "Liên hệ nhanh để được gợi ý sản phẩm phù hợp",
     ],
-    image: "/assets/12923f274ee76bfa.png",
+    image: "/carousel/img/banner1.jfif",
     href: "/products?brand=TPR",
   },
 ];
@@ -81,7 +81,9 @@ export default function HomeCarousel() {
             </div>
 
             <div className="hero-carousel-media">
-              <img src={activeSlide.image} alt="" />
+              <div className="hero-carousel-image-frame">
+                <img src={activeSlide.image} alt="Sprayway TPR banner sản phẩm ngành may" />
+              </div>
             </div>
           </div>
 
