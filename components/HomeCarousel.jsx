@@ -13,7 +13,7 @@ const slides = [
       "Hiệu quả tức thì, hạn chế để lại dấu vết",
       "Catalog rõ mã, dễ lọc theo thương hiệu",
     ],
-    image: "/assets/8206026da8c442cd.png",
+    image: "/assets/0031a095007bb025.png",
     href: "/products?brand=Sprayway",
   },
   {
@@ -25,7 +25,7 @@ const slides = [
       "Dễ tra cứu theo SKU, thương hiệu, danh mục",
       "Tư vấn chọn đúng mã theo bề mặt sử dụng",
     ],
-    image: "/assets/0031a095007bb025.png",
+    image: "/assets/0c2af258d3ca3c4e.png",
     href: "/products?category=Bình xịt công nghiệp Sprayway",
   },
   {

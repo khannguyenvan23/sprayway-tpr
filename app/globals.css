@@ -2544,8 +2544,8 @@ img {
 
 /* Homepage showcase redesign */
 .hero-carousel {
-  padding: 54px 0 36px;
-  background: #eef4ec;
+  padding: 34px 0 48px;
+  background: #f3f6f2;
   color: var(--ink);
 }
 
@@ -2553,14 +2553,15 @@ img {
   position: relative;
   border-radius: 8px;
   background: #fdfefb;
-  box-shadow: 0 18px 45px rgba(68, 88, 54, 0.12);
+  border: 1px solid #dfe8d7;
+  box-shadow: 0 14px 34px rgba(68, 88, 54, 0.1);
   overflow: visible;
 }
 
 .hero-carousel-grid {
-  min-height: 520px;
+  min-height: 430px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.92fr);
+  grid-template-columns: minmax(0, 0.96fr) minmax(320px, 0.86fr);
   gap: 0;
   align-items: stretch;
   padding: 0;
@@ -2572,29 +2573,29 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 78px 58px;
-  background: #f5f9f1;
+  padding: 56px 54px;
+  background: linear-gradient(135deg, #f7faf3, #eef5e8);
 }
 
 .hero-carousel-copy .eyebrow {
-  color: #6f8f43;
-  font-size: 28px;
+  color: #78964a;
+  font-size: 24px;
   font-weight: 900;
   letter-spacing: 0;
   text-transform: none;
 }
 
 .hero-carousel-copy h1 {
-  max-width: 640px;
-  margin: 18px 0 24px;
+  max-width: 610px;
+  margin: 14px 0 18px;
   color: #25422d;
-  font-size: 48px;
+  font-size: 42px;
   line-height: 1.08;
   letter-spacing: 0;
 }
 
 .hero-carousel-copy p {
-  max-width: 660px;
+  max-width: 620px;
   margin: 0;
   color: #40533f;
   font-size: 16px;
@@ -2604,7 +2605,7 @@ img {
 .hero-bullets {
   display: grid;
   gap: 8px;
-  margin: 24px 0 32px;
+  margin: 20px 0 28px;
   padding: 0;
   list-style: none;
   color: #40533f;
@@ -2629,25 +2630,28 @@ img {
 }
 
 .hero-carousel-media {
-  min-height: 520px;
+  min-height: 430px;
   display: grid;
   place-items: center;
   border: 0;
   border-left: 1px solid #e2ebd9;
   border-radius: 0;
-  background: #fbfdf8;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(120, 150, 74, 0.12), transparent 48%),
+    #fbfdf8;
 }
 
 .hero-carousel-media img {
-  width: min(74%, 420px);
-  max-height: 360px;
+  width: min(72%, 330px);
+  max-height: 310px;
   object-fit: contain;
   filter: drop-shadow(0 18px 26px rgba(23, 32, 51, 0.14));
 }
 
 .hero-carousel-controls {
   position: absolute;
-  top: -22px;
+  top: auto;
+  bottom: -21px;
   left: 50%;
   z-index: 3;
   display: flex;
@@ -2670,8 +2674,8 @@ img {
 
 .carousel-dots {
   position: absolute;
-  right: 22px;
-  bottom: 18px;
+  right: 20px;
+  bottom: 16px;
   display: flex;
   gap: 8px;
 }
@@ -2798,11 +2802,11 @@ img {
   }
 
   .hero-carousel-copy {
-    padding: 52px 34px;
+    padding: 44px 34px;
   }
 
   .hero-carousel-media {
-    min-height: 360px;
+    min-height: 320px;
     border-left: 0;
     border-top: 1px solid #eef2f7;
   }
@@ -2814,7 +2818,7 @@ img {
   }
 
   .hero-carousel-copy {
-    padding: 38px 22px;
+    padding: 34px 22px;
   }
 
   .hero-carousel-copy .eyebrow {
@@ -2822,11 +2826,11 @@ img {
   }
 
   .hero-carousel-copy h1 {
-    font-size: 34px;
+    font-size: 32px;
   }
 
   .hero-carousel-media {
-    min-height: 280px;
+    min-height: 250px;
   }
 
   .hero-carousel-media img {
