@@ -21,7 +21,7 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="container nav">
         <Link className="logo" href="/" onClick={closeMenu}>
-          <img className="logo-image" src="/logo-text-01-cropped.png" alt="Sprayway TPR" />
+          <img className="logo-image" src="/logo-01-main.png" alt="QE Agency Vietnam" />
         </Link>
 
         <form className="header-search" onSubmit={submitSearch}>
