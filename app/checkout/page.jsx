@@ -1,7 +1,7 @@
-import SiteShell from "@/components/SiteShell";
+﻿import SiteShell from "@/components/SiteShell";
 
 export const metadata = {
-  title: "Liên hệ báo giá | Sprayway TPR Prototype",
+  title: "LiÃªn há»‡ bÃ¡o giÃ¡ | QE Agency Trading",
 };
 
 export default function CheckoutPage() {
@@ -9,21 +9,21 @@ export default function CheckoutPage() {
     <SiteShell>
       <section className="section white">
         <div className="container">
-          <p className="breadcrumb">Trang chủ / Liên hệ báo giá</p>
+          <p className="breadcrumb">Trang chá»§ / LiÃªn há»‡ bÃ¡o giÃ¡</p>
           <div className="section-head">
             <div>
-              <h1 className="section-title">Liên hệ báo giá</h1>
+              <h1 className="section-title">LiÃªn há»‡ bÃ¡o giÃ¡</h1>
               <p className="section-copy">
-                Website không nhận đơn hàng online. Khách hàng vui lòng gọi hotline để nhận tư vấn sản phẩm và báo giá.
+                Website khÃ´ng nháº­n Ä‘Æ¡n hÃ ng online. KhÃ¡ch hÃ ng vui lÃ²ng gá»i hotline Ä‘á»ƒ nháº­n tÆ° váº¥n sáº£n pháº©m vÃ  bÃ¡o giÃ¡.
               </p>
             </div>
           </div>
           <div className="empty cart-empty">
-            <h2>Hotline tư vấn: 0901 890 811</h2>
-            <p>Tư vấn sản phẩm Sprayway, TPR, LDH, ANC và vật tư ngành may.</p>
+            <h2>Hotline tÆ° váº¥n: 0901 890 811</h2>
+            <p>TÆ° váº¥n sáº£n pháº©m Sprayway, TPR, LDH, ANC vÃ  váº­t tÆ° ngÃ nh may.</p>
             <div className="hero-actions">
-              <a className="button primary" href="tel:0901890811">Liên hệ báo giá</a>
-              <a className="button secondary light" href="/products">Quay lại catalog</a>
+              <a className="button primary" href="tel:0901890811">LiÃªn há»‡ bÃ¡o giÃ¡</a>
+              <a className="button secondary light" href="/products">Quay láº¡i catalog</a>
             </div>
           </div>
         </div>
@@ -31,3 +31,4 @@ export default function CheckoutPage() {
     </SiteShell>
   );
 }
+

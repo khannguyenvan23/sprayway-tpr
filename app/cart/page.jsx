@@ -1,7 +1,7 @@
-import SiteShell from "@/components/SiteShell";
+﻿import SiteShell from "@/components/SiteShell";
 
 export const metadata = {
-  title: "Liên hệ báo giá | Sprayway TPR Prototype",
+  title: "LiÃªn há»‡ bÃ¡o giÃ¡ | QE Agency Trading",
 };
 
 export default function CartPage() {
@@ -9,21 +9,21 @@ export default function CartPage() {
     <SiteShell>
       <section className="section white">
         <div className="container">
-          <p className="breadcrumb">Trang chủ / Liên hệ báo giá</p>
+          <p className="breadcrumb">Trang chá»§ / LiÃªn há»‡ bÃ¡o giÃ¡</p>
           <div className="section-head">
             <div>
-              <h1 className="section-title">Liên hệ báo giá</h1>
+              <h1 className="section-title">LiÃªn há»‡ bÃ¡o giÃ¡</h1>
               <p className="section-copy">
-                Website đã chuyển sang mô hình catalog. Vui lòng gọi hotline để được tư vấn sản phẩm và nhận báo giá.
+                Website Ä‘Ã£ chuyá»ƒn sang mÃ´ hÃ¬nh catalog. Vui lÃ²ng gá»i hotline Ä‘á»ƒ Ä‘Æ°á»£c tÆ° váº¥n sáº£n pháº©m vÃ  nháº­n bÃ¡o giÃ¡.
               </p>
             </div>
           </div>
           <div className="empty cart-empty">
-            <h2>Không sử dụng giỏ hàng online</h2>
+            <h2>KhÃ´ng sá»­ dá»¥ng giá» hÃ ng online</h2>
             <p>Hotline: 0901 890 811</p>
             <div className="hero-actions">
-              <a className="button primary" href="tel:0901890811">Liên hệ báo giá</a>
-              <a className="button secondary light" href="/products">Xem sản phẩm</a>
+              <a className="button primary" href="tel:0901890811">LiÃªn há»‡ bÃ¡o giÃ¡</a>
+              <a className="button secondary light" href="/products">Xem sáº£n pháº©m</a>
             </div>
           </div>
         </div>
@@ -31,3 +31,4 @@ export default function CartPage() {
     </SiteShell>
   );
 }
+

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ProductImage from "@/components/ProductImage";
 import { assetSrc, productSummary } from "@/lib/product-utils";
 
 export default function ProductCard({ product }) {
@@ -10,7 +11,7 @@ export default function ProductCard({ product }) {
       <Link className="product-card-link" href={`/products/${product.slug}`}>
         <div className="product-media">
           {assetSrc(product) ? (
-            <img src={assetSrc(product)} alt={product.name} loading="lazy" />
+            <ProductImage src={assetSrc(product)} alt={product.name} />
           ) : null}
         </div>
       </Link>

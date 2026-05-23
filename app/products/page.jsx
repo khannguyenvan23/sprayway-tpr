@@ -1,10 +1,10 @@
-import { Suspense } from "react";
+﻿import { Suspense } from "react";
 import SiteShell from "@/components/SiteShell";
 import ProductFilters from "@/components/ProductFilters";
 import { getCatalog } from "@/lib/catalog";
 
 export const metadata = {
-  title: "Sản phẩm | Sprayway TPR Prototype",
+  title: "Sáº£n pháº©m | QE Agency Trading",
 };
 
 export default async function ProductsPage() {
@@ -14,16 +14,16 @@ export default async function ProductsPage() {
     <SiteShell>
       <section className="section white">
         <div className="container">
-          <p className="breadcrumb">Trang chủ / Sản phẩm</p>
+          <p className="breadcrumb">Trang chá»§ / Sáº£n pháº©m</p>
           <div className="section-head shop-head">
             <div>
-              <h1 className="section-title">Tất cả sản phẩm</h1>
+              <h1 className="section-title">Táº¥t cáº£ sáº£n pháº©m</h1>
               <p className="section-copy">
-                Chọn nhanh theo thương hiệu, danh mục và nhu cầu sử dụng để tìm đúng sản phẩm cần tư vấn.
+                Chá»n nhanh theo thÆ°Æ¡ng hiá»‡u, danh má»¥c vÃ  nhu cáº§u sá»­ dá»¥ng Ä‘á»ƒ tÃ¬m Ä‘Ãºng sáº£n pháº©m cáº§n tÆ° váº¥n.
               </p>
             </div>
           </div>
-          <Suspense fallback={<div className="empty">Đang tải sản phẩm...</div>}>
+          <Suspense fallback={<div className="empty">Äang táº£i sáº£n pháº©m...</div>}>
             <ProductFilters products={products} categories={categories} brands={brands} />
           </Suspense>
         </div>
@@ -31,3 +31,4 @@ export default async function ProductsPage() {
     </SiteShell>
   );
 }
+

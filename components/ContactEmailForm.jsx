@@ -8,34 +8,57 @@ const initialForm = {
   phone: "",
   company: "",
   message: "",
+  website: "",
 };
 
 export default function ContactEmailForm() {
   const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState({ type: "idle", message: "" });
 
   function updateField(event) {
     const { name, value } = event.target;
     setForm((current) => ({ ...current, [name]: value }));
   }
 
-  function submitForm(event) {
+  async function submitForm(event) {
     event.preventDefault();
-    const subject = `Lien he tu website - ${form.name || "Khach hang"}`;
-    const body = [
-      `Ho ten: ${form.name}`,
-      `Email: ${form.email}`,
-      `So dien thoai: ${form.phone}`,
-      `Cong ty/Xuong: ${form.company}`,
-      "",
-      "Noi dung:",
-      form.message,
-    ].join("\n");
+    setStatus({ type: "loading", message: "Đang gửi thông tin liên hệ..." });
 
-    window.location.href = `mailto:info@qeagencygroup.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(result.error || "Không gửi được email. Vui lòng thử lại.");
+      }
+
+      setForm(initialForm);
+      setStatus({ type: "success", message: "Đã gửi thông tin thành công. QE Agency sẽ phản hồi sớm." });
+    } catch (error) {
+      setStatus({ type: "error", message: error.message });
+    }
   }
+
+  const isSubmitting = status.type === "loading";
 
   return (
     <form className="contact-form" onSubmit={submitForm}>
+      <input
+        aria-hidden="true"
+        autoComplete="off"
+        className="contact-honeypot"
+        name="website"
+        onChange={updateField}
+        tabIndex={-1}
+        value={form.website}
+      />
+
       <div className="contact-form-grid">
         <label>
           Họ và tên
@@ -54,6 +77,7 @@ export default function ContactEmailForm() {
           <input name="company" value={form.company} onChange={updateField} placeholder="Tên công ty hoặc xưởng" />
         </label>
       </div>
+
       <label>
         Nội dung cần tư vấn
         <textarea
@@ -65,7 +89,16 @@ export default function ContactEmailForm() {
           required
         />
       </label>
-      <button className="button primary" type="submit">Gửi email liên hệ</button>
+
+      <button className="button primary" disabled={isSubmitting} type="submit">
+        {isSubmitting ? "Đang gửi..." : "Gửi email liên hệ"}
+      </button>
+
+      {status.message ? (
+        <p className={`contact-form-status ${status.type}`} role="status">
+          {status.message}
+        </p>
+      ) : null}
     </form>
   );
 }
