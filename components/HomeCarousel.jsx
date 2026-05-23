@@ -17,28 +17,28 @@ const slides = [
     href: "/products?brand=Sprayway",
   },
   {
-    eyebrow: "Dòng tẩy rửa",
-    title: "Xử lý vết dầu, bụi bẩn và lỗi bề mặt nhanh",
-    copy: "Các dòng chai xịt tẩy rửa hỗ trợ xưởng may, in lụa, nội thất và bảo trì công nghiệp trong những tình huống cần thao tác nhanh, sạch và dễ kiểm soát.",
+    eyebrow: "Keo xịt định vị & hóa chất in lưới",
+    title: "Giữ chuẩn hình in, hạn chế lem keo và lệch vị trí",
+    copy: "Nhóm keo xịt định vị và hóa chất ngành in lưới, in lụa hỗ trợ xưởng in áo thun, in vải giữ vật liệu ổn định trong quá trình thao tác, giảm lỗi bề mặt và tiết kiệm thời gian chỉnh sửa.",
     bullets: [
-      "Phù hợp quy trình kiểm hàng và hoàn thiện",
-      "Dễ tra cứu theo SKU, thương hiệu, danh mục",
-      "Tư vấn chọn đúng mã theo bề mặt sử dụng",
+      "Phù hợp xưởng in áo thun, in vải, in lưới và in lụa",
+      "Hạn chế lệch hình in, lem keo và lỗi bề mặt vải",
+      "Tư vấn chọn đúng mã theo vật liệu và quy trình in",
     ],
-    image: "/carousel/img/banner1.jfif",
-    href: "/products?category=Bình xịt công nghiệp Sprayway",
+    image: "/carousel/img/banner2.jfif",
+    href: "/products?application=In%20Lưới",
   },
   {
-    eyebrow: "Keo xịt & định vị",
-    title: "Giữ form, định vị vật liệu và tối ưu chuyền sản xuất",
-    copy: "Nhóm keo xịt, hóa chất TPR và vật tư ngành may giúp giảm thời gian căn chỉnh, hỗ trợ thao tác dán tạm, cố định chi tiết và xử lý sản phẩm trước khi hoàn thiện.",
+    eyebrow: "Gian hàng chính hãng 100% - miễn phí vận chuyển",
+    title: "Bảo vệ máy móc toàn diện - sáng bóng như mới trong một nốt nhạc",
+    copy: "Dòng sản phẩm bôi trơn, chống gỉ sét và vệ sinh nội thất ô tô chuyên dụng Sprayway. Hiệu quả tức thì, bảo vệ bề mặt bền lâu.",
     bullets: [
-      "Hỗ trợ ngành may, thêu, in lụa và quảng cáo",
-      "Nhiều mã sản phẩm cho từng nhu cầu thao tác",
-      "Liên hệ nhanh để được gợi ý sản phẩm phù hợp",
+      "Bôi trơn, chống rỉ sét và bảo vệ chi tiết máy",
+      "Làm sạch, tạo độ sáng bóng cho bề mặt nội thất",
+      "Tư vấn đúng mã Sprayway theo nhu cầu bảo trì",
     ],
-    image: "/carousel/img/banner1.jfif",
-    href: "/products?brand=TPR",
+    image: "/carousel/img/banner3.jfif",
+    href: "/products?brand=Sprayway",
   },
 ];
 
@@ -49,7 +49,7 @@ export default function HomeCarousel() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveIndex((currentIndex) => (currentIndex + 1) % slides.length);
-    }, 6500);
+    }, 20000);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -82,7 +82,7 @@ export default function HomeCarousel() {
 
             <div className="hero-carousel-media">
               <div className="hero-carousel-image-frame">
-                <img src={activeSlide.image} alt="Sprayway TPR banner sản phẩm ngành may" />
+                <img src={activeSlide.image} alt="Sprayway TPR banner sản phẩm" />
               </div>
             </div>
           </div>

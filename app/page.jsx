@@ -5,6 +5,21 @@ import HomeCarousel from "@/components/HomeCarousel";
 import HomeIndustrySections from "@/components/HomeIndustrySections";
 import { getCatalog, getFeaturedProducts } from "@/lib/catalog";
 
+export const metadata = {
+  title: "QE Agency Trading",
+  description:
+    "QE Agency Trading cung cấp catalog hóa chất công nghiệp, bình xịt Sprayway, keo xịt TPR và vật tư ngành may, in lưới, bảo trì cho doanh nghiệp Việt Nam.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "QE Agency Trading",
+    description:
+      "Nhà phân phối hóa chất công nghiệp, Sprayway, TPR và vật tư ngành may tại Việt Nam.",
+    url: "/",
+  },
+};
+
 const applications = [
   {
     name: "Mỹ thuật",

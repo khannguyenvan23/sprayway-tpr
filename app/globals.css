@@ -2657,6 +2657,7 @@ img {
 .hero-carousel-media img {
   width: 100%;
   height: 100%;
+  display: block;
   object-fit: cover;
   filter: none;
 }
@@ -2828,6 +2829,7 @@ img {
     width: min(78%, 280px);
     height: 300px;
   }
+
 }
 
 @media (max-width: 620px) {
