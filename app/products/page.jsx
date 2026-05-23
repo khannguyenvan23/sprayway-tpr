@@ -22,7 +22,6 @@ export default async function ProductsPage() {
                 Chọn nhanh theo thương hiệu, danh mục và nhu cầu sử dụng để tìm đúng sản phẩm cần tư vấn.
               </p>
             </div>
-            <a className="button primary" href="tel:0901890811">Cần tư vấn?</a>
           </div>
           <Suspense fallback={<div className="empty">Đang tải sản phẩm...</div>}>
             <ProductFilters products={products} categories={categories} brands={brands} />

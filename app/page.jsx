@@ -140,6 +140,39 @@ export default async function HomePage() {
       <HomeCarousel />
       <HomeIndustrySections />
 
+      <section className="consult-process-section">
+        <div className="container">
+          <div className="consult-process-head">
+            <span>Quy trình tư vấn</span>
+            <h2>Khách B2B mua hàng theo 3 bước rõ ràng</h2>
+            <p>
+              Website hoạt động như catalog tư vấn. QE Agency tiếp nhận nhu cầu, đối chiếu đúng mã sản phẩm và gửi báo giá phù hợp theo số lượng, bề mặt sử dụng và quy trình vận hành.
+            </p>
+          </div>
+          <div className="consult-process-grid">
+            <article>
+              <strong>01</strong>
+              <h3>Gửi nhu cầu</h3>
+              <p>Khách gửi mã sản phẩm, hình ảnh lỗi bề mặt hoặc nhu cầu sử dụng qua form, hotline, Zalo hoặc Facebook.</p>
+            </article>
+            <article>
+              <strong>02</strong>
+              <h3>QE tư vấn đúng mã</h3>
+              <p>Đội ngũ QE kiểm tra ngành dùng, chất liệu, thao tác tại xưởng và đề xuất mã Sprayway/TPR phù hợp.</p>
+            </article>
+            <article>
+              <strong>03</strong>
+              <h3>Báo giá & giao hàng</h3>
+              <p>QE gửi báo giá theo số lượng, xác nhận tồn kho, phương thức thanh toán và hỗ trợ giao hàng toàn quốc.</p>
+            </article>
+          </div>
+          <div className="consult-process-actions">
+            <Link className="button primary" href="/lien-he">Gửi nhu cầu tư vấn</Link>
+            <a className="button ghost" href="tel:0901890811">Gọi 0901 890 811</a>
+          </div>
+        </div>
+      </section>
+
       <section id="brands" className="section">
         <div className="container">
           <div className="section-head">

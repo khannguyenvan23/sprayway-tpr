@@ -5,40 +5,43 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    eyebrow: "Giải pháp tổng thể",
-    title: "Chuyên gia làm sạch & bảo trì ngành may",
-    copy: "Từ khâu định vị vải, thêu công nghiệp đến xử lý lỗi thành phẩm và bảo trì máy móc. QE Agency cung cấp nhóm hóa chất giúp quy trình sản xuất sạch, nhanh và ổn định.",
+    eyebrow: "Hệ sinh thái công nghệ Mỹ",
+    title: "Đánh bay vết dầu máy trong 5 giây - không lo lỗi vải export!",
+    copy: "Hệ giải pháp keo xịt định vị và hóa chất tẩy rửa chuyên dụng từ QE Agency. Xử lý triệt để vết bẩn ngay tại dây chuyền, tăng tốc độ đóng gói thành phẩm.",
     bullets: [
-      "An toàn cho nhiều bề mặt vải và thiết bị",
-      "Hiệu quả tức thì, hạn chế để lại dấu vết",
-      "Catalog rõ mã, dễ lọc theo thương hiệu",
+      "Hiệu quả tức thì, cam kết không để lại quầng ố",
+      "An toàn tuyệt đối cho mọi chất liệu vải cao cấp",
+      "Tối ưu chi phí vận hành xưởng lên đến 30%",
     ],
     image: "/carousel/img/banner1.jfif",
-    href: "/products?brand=Sprayway",
+    href: "/lien-he",
+    actionLabel: "Nhận báo giá sỉ tại kho",
   },
   {
-    eyebrow: "Keo xịt định vị & hóa chất in lưới",
-    title: "Giữ chuẩn hình in, hạn chế lem keo và lệch vị trí",
-    copy: "Nhóm keo xịt định vị và hóa chất ngành in lưới, in lụa hỗ trợ xưởng in áo thun, in vải giữ vật liệu ổn định trong quá trình thao tác, giảm lỗi bề mặt và tiết kiệm thời gian chỉnh sửa.",
+    eyebrow: "Giải pháp định vị chuyên dụng",
+    title: "Hình in sắc nét và chuẩn xác - không lo lệch vị trí, không lem keo!",
+    copy: "Hệ thống keo xịt định vị cao cấp Sprayway 82/84 sở hữu độ bám dính cực cao và khả năng chịu nhiệt sấy Plastisol vượt trội. Giúp cố định vải hoàn hảo trên pallet, triệt tiêu rủi ro lệch hình mà không để lại cặn keo trên bề mặt.",
     bullets: [
-      "Phù hợp xưởng in áo thun, in vải, in lưới và in lụa",
-      "Hạn chế lệch hình in, lem keo và lỗi bề mặt vải",
-      "Tư vấn chọn đúng mã theo vật liệu và quy trình in",
+      "Tiết kiệm đến 30% chi phí nhờ giảm tối đa tỷ lệ hàng lỗi, hàng bù",
+      "Tăng tốc độ sản xuất với công thức phun sương dàn đều, giữ độ dính qua hàng chục lượt in",
+      "Chuẩn xuất khẩu: thành phần an toàn, bảo vệ sức khỏe thợ in",
     ],
     image: "/carousel/img/banner2.jfif",
-    href: "/products?application=In%20Lưới",
+    href: "/lien-he",
+    actionLabel: "Liên hệ nhận giá sỉ xưởng",
   },
   {
-    eyebrow: "Gian hàng chính hãng 100% - miễn phí vận chuyển",
-    title: "Bảo vệ máy móc toàn diện - sáng bóng như mới trong một nốt nhạc",
-    copy: "Dòng sản phẩm bôi trơn, chống gỉ sét và vệ sinh nội thất ô tô chuyên dụng Sprayway. Hiệu quả tức thì, bảo vệ bề mặt bền lâu.",
+    eyebrow: "Gian hàng chính hãng 100% - Ship COD toàn quốc",
+    title: "Máy móc êm ru - xế yêu sáng bóng như mới trong một nốt nhạc!",
+    copy: "Đánh bay gỉ sét, triệt tiêu tiếng kêu kẹt kẹt khó chịu và phục hồi nội thất tối màu ngay lập tức với bộ giải pháp bảo dưỡng chuyên nghiệp Sprayway C-60, Interior Cleaner. Hiệu quả thấy rõ bằng mắt thường chỉ sau một lần xịt.",
     bullets: [
-      "Bôi trơn, chống rỉ sét và bảo vệ chi tiết máy",
-      "Làm sạch, tạo độ sáng bóng cho bề mặt nội thất",
-      "Tư vấn đúng mã Sprayway theo nhu cầu bảo trì",
+      "Hiệu quả tức thì: tẩy sạch dầu mỡ bám cặn, nhựa đường và phục hồi da/nhựa bạc màu nhanh chóng",
+      "Bảo vệ dài lâu: tạo lớp màng kháng nước, chống oxy hóa bề mặt, ngăn ngừa gỉ sét quay lại",
+      "Ưu đãi hấp dẫn: có giá sỉ cho garage và chai nhỏ tiện lợi cho cá nhân tự chăm sóc tại nhà",
     ],
     image: "/carousel/img/banner3.jfif",
-    href: "/products?brand=Sprayway",
+    href: "/lien-he",
+    actionLabel: "Sắm ngay tại Shopee Mall",
   },
 ];
 
@@ -77,7 +80,10 @@ export default function HomeCarousel() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <Link className="button primary hero-primary-action" href={activeSlide.href}>Khám phá danh mục</Link>
+              <div className="hero-action-row">
+                <Link className="button primary hero-primary-action" href={activeSlide.href}>{activeSlide.actionLabel}</Link>
+                <a className="button hero-secondary-action" href="tel:0901890811">Gọi hotline 0901 890 811</a>
+              </div>
             </div>
 
             <div className="hero-carousel-media">
