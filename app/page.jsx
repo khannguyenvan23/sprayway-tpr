@@ -144,32 +144,33 @@ export default async function HomePage() {
         <div className="container">
           <div className="consult-process-head">
             <span>Quy trình tư vấn</span>
-            <h2>Khách B2B mua hàng theo 3 bước rõ ràng</h2>
+            <h2>Quy trình hợp tác nhanh gọn trong 3 bước</h2>
             <p>
-              Website hoạt động như catalog tư vấn. QE Agency tiếp nhận nhu cầu, đối chiếu đúng mã sản phẩm và gửi báo giá phù hợp theo số lượng, bề mặt sử dụng và quy trình vận hành.
+              QE Agency tiếp nhận nhu cầu trực tuyến và phản hồi giải pháp tối ưu chỉ trong vòng 15-30 phút. Hỗ trợ kỹ thuật và thử mẫu trực tiếp tại nhà xưởng.
             </p>
           </div>
           <div className="consult-process-grid">
             <article>
               <strong>01</strong>
-              <h3>Gửi nhu cầu</h3>
-              <p>Khách gửi mã sản phẩm, hình ảnh lỗi bề mặt hoặc nhu cầu sử dụng qua form, hotline, Zalo hoặc Facebook.</p>
+              <h3>Gửi tình trạng lỗi</h3>
+              <p>Khách hàng cung cấp thông tin, hình ảnh lỗi bề mặt hoặc nhu cầu qua form, hotline, Zalo hoặc Facebook.</p>
             </article>
             <article>
               <strong>02</strong>
-              <h3>QE tư vấn đúng mã</h3>
-              <p>Đội ngũ QE kiểm tra ngành dùng, chất liệu, thao tác tại xưởng và đề xuất mã Sprayway/TPR phù hợp.</p>
+              <h3>Test mẫu miễn phí</h3>
+              <p>Chuyên viên QE đối chiếu chất liệu, mang sản phẩm Sprayway/TPR phù hợp đến tận nơi thử nghiệm thực tế.</p>
             </article>
             <article>
               <strong>03</strong>
-              <h3>Báo giá & giao hàng</h3>
-              <p>QE gửi báo giá theo số lượng, xác nhận tồn kho, phương thức thanh toán và hỗ trợ giao hàng toàn quốc.</p>
+              <h3>Báo giá sỉ tại kho</h3>
+              <p>Nhận phương án chiết khấu tốt nhất theo số lượng, xác nhận tồn kho và hỗ trợ giao hàng siêu tốc toàn quốc.</p>
             </article>
           </div>
           <div className="consult-process-actions">
             <Link className="button primary" href="/lien-he">Gửi nhu cầu tư vấn</Link>
             <a className="button ghost" href="tel:0901890811">Gọi 0901 890 811</a>
           </div>
+          <p className="consult-process-note">Tư vấn và kiểm tra mẫu thử tại xưởng hoàn toàn miễn phí.</p>
         </div>
       </section>
 

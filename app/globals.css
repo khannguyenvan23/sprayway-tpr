@@ -3363,6 +3363,28 @@ img {
   margin-top: 24px;
 }
 
+.consult-process-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 18px 0 0;
+  color: #25422d;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.consult-process-note::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 4px;
+  background:
+    linear-gradient(#25422d, #25422d) 50% 58% / 8px 6px no-repeat,
+    linear-gradient(#25422d, #25422d) 50% 25% / 10px 7px no-repeat;
+  clip-path: polygon(20% 42%, 20% 100%, 80% 100%, 80% 42%, 68% 42%, 68% 25%, 32% 25%, 32% 42%);
+}
+
 .hero-carousel-media {
   min-height: 430px;
   display: grid;
