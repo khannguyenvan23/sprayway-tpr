@@ -865,6 +865,34 @@ img {
   margin-bottom: 0;
 }
 
+.seo-product-content {
+  max-width: 960px;
+}
+
+.seo-content-block {
+  margin-top: 28px;
+}
+
+.seo-content-block h2 {
+  margin-bottom: 10px;
+}
+
+.product-faq details {
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+}
+
+.product-faq summary {
+  color: var(--ink);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.product-faq p {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
 .footer {
   padding: 34px 0;
   background: #111827;

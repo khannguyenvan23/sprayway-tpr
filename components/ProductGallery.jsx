@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { assetSrc } from "@/lib/product-utils";
+import { productImageAlt } from "@/lib/product-seo";
 
 export default function ProductGallery({ product }) {
   const [hasError, setHasError] = useState(false);
@@ -20,7 +21,7 @@ export default function ProductGallery({ product }) {
   return (
     <div className="product-gallery">
       <div className="product-gallery-main">
-        <img src={src} alt={product.name} onError={() => setHasError(true)} />
+        <img src={src} alt={productImageAlt(product)} onError={() => setHasError(true)} />
       </div>
     </div>
   );

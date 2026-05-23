@@ -5,6 +5,14 @@ import ProductCard from "@/components/ProductCard";
 import ProductGallery from "@/components/ProductGallery";
 import { getCatalog, getProductBySlug } from "@/lib/catalog";
 import { productStatusLabel, productSummary } from "@/lib/product-utils";
+import {
+  breadcrumbJsonLd,
+  productCanonicalUrl,
+  productJsonLd,
+  productSeoContent,
+  productSeoDescription,
+  productSeoTitle,
+} from "@/lib/product-seo";
 
 export async function generateStaticParams() {
   const { products } = await getCatalog();
@@ -16,9 +24,27 @@ export async function generateMetadata({ params }) {
   const resolvedParams = await params;
   const product = await getProductBySlug(resolvedParams.slug);
   if (!product) return {};
+  const title = productSeoTitle(product);
+  const description = productSeoDescription(product);
+  const canonical = productCanonicalUrl(product);
+
   return {
-    title: `${product.name} | Sprayway TPR Prototype`,
-    description: productSummary(product),
+    title,
+    description,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      url: canonical,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
@@ -31,8 +57,15 @@ export default async function ProductDetailPage({ params }) {
   const related = products
     .filter((item) => item.id !== product.id && (item.category === product.category || item.brand === product.brand))
     .slice(0, 4);
+  const seoContent = productSeoContent(product);
+  const schema = [productJsonLd(product), breadcrumbJsonLd(product)];
+
   return (
     <SiteShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <section className="section white">
         <div className="container detail-grid">
           <div className="detail-media">
@@ -43,8 +76,8 @@ export default async function ProductDetailPage({ params }) {
               <Link href="/">Trang chủ</Link> / <Link href="/products">Sản phẩm</Link> / {product.brand}
             </p>
             <div className="meta-row">
-              <span className="tag">{product.brand}</span>
-              <span className="tag">{product.category}</span>
+              <Link className="tag" href={`/products?brand=${encodeURIComponent(product.brand)}`}>{product.brand}</Link>
+              <Link className="tag" href={`/products?category=${encodeURIComponent(product.category)}`}>{product.category}</Link>
               <span className="tag">{productStatusLabel(product.status)}</span>
             </div>
             <h1>{product.name}</h1>
@@ -58,7 +91,10 @@ export default async function ProductDetailPage({ params }) {
             <div className="spec-list">
               <div className="spec-row"><span>Mã sản phẩm</span><strong>{product.code || "Đang cập nhật"}</strong></div>
               <div className="spec-row"><span>SKU</span><strong>{product.sku}</strong></div>
-              <div className="spec-row"><span>Thương hiệu</span><strong>{product.brand}</strong></div>
+              <div className="spec-row">
+                <span>Thương hiệu</span>
+                <Link href={`/products?brand=${encodeURIComponent(product.brand)}`}>{product.brand}</Link>
+              </div>
               <div className="spec-row">
                 <span>Danh mục</span>
                 <Link href={`/products?category=${encodeURIComponent(product.category)}`}>{product.category}</Link>
@@ -83,6 +119,34 @@ export default async function ProductDetailPage({ params }) {
       ) : null}
 
       <section className={product.fullDescription ? "section white" : "section"}>
+        <div className="container">
+          <div className="product-description seo-product-content">
+            <h2>Thông tin chi tiết về {product.name}</h2>
+            {seoContent.intro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+
+            {seoContent.sections.map((section) => (
+              <section className="seo-content-block" key={section.title}>
+                <h2>{section.title}</h2>
+                <p>{section.body}</p>
+              </section>
+            ))}
+
+            <section className="seo-content-block product-faq">
+              <h2>Câu hỏi thường gặp về {product.code || product.sku}</h2>
+              {seoContent.faqs.map((item) => (
+                <details key={item.question}>
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section className="section white">
         <div className="container">
           <div className="section-head">
             <div>
