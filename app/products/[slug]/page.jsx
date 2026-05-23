@@ -59,8 +59,10 @@ export default async function ProductDetailPage({ params }) {
               <div className="spec-row"><span>Mã sản phẩm</span><strong>{product.code || "Đang cập nhật"}</strong></div>
               <div className="spec-row"><span>SKU</span><strong>{product.sku}</strong></div>
               <div className="spec-row"><span>Thương hiệu</span><strong>{product.brand}</strong></div>
-              <div className="spec-row"><span>Danh mục</span><strong>{product.category}</strong></div>
-              <div className="spec-row"><span>Nguồn dữ liệu</span><a href={product.sourceUrl} target="_blank">Website cũ</a></div>
+              <div className="spec-row">
+                <span>Danh mục</span>
+                <Link href={`/products?category=${encodeURIComponent(product.category)}`}>{product.category}</Link>
+              </div>
               <div className="spec-row"><span>Trạng thái</span><strong>{productStatusLabel(product.status)}</strong></div>
             </div>
           </article>

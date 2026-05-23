@@ -31,6 +31,8 @@ export default function ProductFilters({ products, categories, brands }) {
   }, [products, query, category, brand, application, sort]);
 
   const hasActiveFilters = query || category || brand || application;
+  const totalBrandCount = brands.reduce((sum, item) => sum + Number(item.count || 0), 0) || products.length;
+  const totalCategoryCount = categories.reduce((sum, item) => sum + Number(item.count || 0), 0) || products.length;
   const resetFilters = () => {
     setQuery("");
     setCategory("");
@@ -62,7 +64,7 @@ export default function ProductFilters({ products, categories, brands }) {
         <div className="field">
           <label htmlFor="brand">Thương hiệu</label>
           <select id="brand" value={brand} onChange={(event) => setBrand(event.target.value)}>
-            <option value="">Tất cả thương hiệu</option>
+            <option value="">Tất cả thương hiệu ({totalBrandCount})</option>
             {brands.map((item) => (
               <option key={item.name} value={item.name}>
                 {item.name} ({item.count})
@@ -73,7 +75,7 @@ export default function ProductFilters({ products, categories, brands }) {
         <div className="field">
           <label htmlFor="category">Danh mục</label>
           <select id="category" value={category} onChange={(event) => setCategory(event.target.value)}>
-            <option value="">Tất cả danh mục</option>
+            <option value="">Tất cả danh mục ({totalCategoryCount})</option>
             {categories.map((item) => (
               <option key={item.name} value={item.name}>
                 {item.name} ({item.count})
