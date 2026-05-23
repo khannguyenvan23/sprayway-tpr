@@ -1,4 +1,5 @@
 import SiteHeader from "./SiteHeader";
+import FloatingContact from "./FloatingContact";
 
 export function SiteFooter() {
   return (
@@ -21,6 +22,7 @@ export default function SiteShell({ children }) {
     <>
       <SiteHeader />
       {children}
+      <FloatingContact />
       <SiteFooter />
     </>
   );

@@ -86,7 +86,10 @@ export default async function ProductDetailPage({ params }) {
               <span>SKU: {product.sku}</span>
             </div>
             <div className="detail-actions">
-              <a className="button primary" href="tel:0901890811">Liên hệ báo giá</a>
+              <a className="button primary quote-call-button" href="tel:0901890811" aria-label="Goi hotline 0901890811">
+                <span>Liên hệ báo giá</span>
+                <strong>Hotline: 0901890811</strong>
+              </a>
             </div>
             <div className="spec-list">
               <div className="spec-row"><span>Mã sản phẩm</span><strong>{product.code || "Đang cập nhật"}</strong></div>
