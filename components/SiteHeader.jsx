@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import CartLink from "./CartLink";
 import CustomerAccountLink from "./CustomerAccountLink";
 
 export default function SiteHeader() {
@@ -62,9 +61,8 @@ export default function SiteHeader() {
           <a href="/#brands" onClick={closeMenu}>Thương hiệu</a>
           <a href="/#applications" onClick={closeMenu}>Ứng dụng</a>
           <CustomerAccountLink onClick={closeMenu} />
-          <CartLink onClick={closeMenu} />
-          <Link href="/checkout" onClick={closeMenu}>Thanh toán</Link>
-          <a className="cta" href="tel:0901890811" onClick={closeMenu}>Liên hệ báo giá</a>
+          <a href="tel:0901890811" onClick={closeMenu}>Đặt hàng qua hotline</a>
+          <a className="cta" href="tel:0901890811" onClick={closeMenu}>Mua hàng trực tiếp qua hotline</a>
         </nav>
       </div>
     </header>

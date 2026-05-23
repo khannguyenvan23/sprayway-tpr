@@ -29,13 +29,13 @@ const slides = [
   {
     eyebrow: "Keo xịt và hóa chất TPR",
     title: "Catalog hóa chất rõ nhóm, dễ lọc theo thương hiệu và ứng dụng",
-    copy: "Tìm sản phẩm theo SKU, thương hiệu, tồn kho và nhóm sử dụng để đặt hàng COD hoặc liên hệ báo giá nhanh cho doanh nghiệp.",
+    copy: "Tìm sản phẩm theo SKU, thương hiệu, tồn kho và nhóm sử dụng, sau đó liên hệ hotline để được tư vấn và báo giá nhanh cho doanh nghiệp.",
     image: "/assets/4bff77d67c5f5d33.png",
     primaryHref: "/products?brand=TPR",
     primaryLabel: "Xem TPR",
-    secondaryHref: "/checkout",
-    secondaryLabel: "Tạo đơn hàng",
-    metrics: ["COD", "SKU", "Báo giá"],
+    secondaryHref: "tel:0901890811",
+    secondaryLabel: "Đặt hàng qua hotline",
+    metrics: ["Hotline", "SKU", "Báo giá"],
   },
 ];
 

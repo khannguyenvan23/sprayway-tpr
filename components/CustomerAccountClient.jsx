@@ -33,8 +33,8 @@ export default function CustomerAccountClient() {
         <h1>{session.email}</h1>
         <p>Tài khoản đang đăng nhập trên thiết bị này. Các tính năng lịch sử đơn hàng và địa chỉ giao hàng có thể nối tiếp ở bước sau.</p>
         <div className="account-actions">
-          <Link className="button primary" href="/products">Mua hàng</Link>
-          <Link className="button secondary light" href="/cart">Giỏ hàng</Link>
+          <a className="button primary" href="tel:0901890811">Đặt hàng qua hotline</a>
+          <a className="button secondary light" href="tel:0901890811">Mua hàng trực tiếp qua hotline</a>
           <button className="button ghost" type="button" onClick={signOut}>Đăng xuất</button>
         </div>
       </section>
@@ -42,8 +42,8 @@ export default function CustomerAccountClient() {
         <h2>Có thể nâng cấp tiếp</h2>
         <ul>
           <li>Lưu nhiều địa chỉ giao hàng.</li>
-          <li>Xem lịch sử đơn COD theo tài khoản.</li>
-          <li>Đặt lại đơn hàng cũ.</li>
+          <li>Lưu lịch sử yêu cầu báo giá theo tài khoản.</li>
+          <li>Gửi lại yêu cầu tư vấn cho sản phẩm cũ.</li>
           <li>Nhận báo giá riêng theo nhóm khách hàng.</li>
         </ul>
       </section>

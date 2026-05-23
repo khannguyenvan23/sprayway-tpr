@@ -2,7 +2,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import SiteShell from "@/components/SiteShell";
 import ProductCard from "@/components/ProductCard";
-import AddToCartButton from "@/components/AddToCartButton";
 import ProductGallery from "@/components/ProductGallery";
 import { getCatalog, getProductBySlug } from "@/lib/catalog";
 import { formatPrice, isProductPurchasable, productStatusLabel, productSummary } from "@/lib/product-utils";
@@ -58,9 +57,9 @@ export default async function ProductDetailPage({ params }) {
               <span>{purchasable ? `Còn hàng: ${product.stock}` : "Tạm ngừng mua"}</span>
             </div>
             <div className="detail-actions">
-              <AddToCartButton product={product} label="Thêm vào giỏ" />
-              <AddToCartButton product={product} checkout label="Mua ngay COD" />
-              <a className="button secondary light" href="tel:0901890811">Liên hệ báo giá</a>
+              <a className="button primary" href="tel:0901890811">Đặt hàng qua hotline</a>
+              <a className="button secondary light" href="tel:0901890811">Mua hàng trực tiếp qua hotline</a>
+              <a className="button ghost" href="tel:0901890811">Liên hệ báo giá</a>
             </div>
             <div className="spec-list">
               <div className="spec-row"><span>Mã sản phẩm</span><strong>{product.code || "Đang cập nhật"}</strong></div>

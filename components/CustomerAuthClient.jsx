@@ -51,7 +51,7 @@ export default function CustomerAuthClient() {
         </div>
 
         <h1>{mode === "login" ? "Đăng nhập khách hàng" : "Tạo tài khoản khách hàng"}</h1>
-        <p>Đăng nhập để lưu thông tin mua hàng và thao tác checkout nhanh hơn.</p>
+        <p>Đăng nhập để lưu thông tin liên hệ và nhận hỗ trợ báo giá nhanh hơn.</p>
 
         <div className="field">
           <label htmlFor="customer-email">Email</label>

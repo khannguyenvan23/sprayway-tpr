@@ -1,5 +1,4 @@
 import Link from "next/link";
-import AddToCartButton from "./AddToCartButton";
 import { assetSrc, formatPrice, isProductPurchasable, productStatusLabel, productSummary } from "@/lib/product-utils";
 
 export default function ProductCard({ product }) {
@@ -31,7 +30,9 @@ export default function ProductCard({ product }) {
           <span>{purchasable ? `Tồn kho: ${product.stock || 0}` : "Tạm ngừng mua"}</span>
         </div>
         <div className="product-card-actions">
-          <AddToCartButton product={product} compact label="Thêm giỏ" />
+          <a className="button primary add-cart-button compact" href="tel:0901890811">
+            Đặt hàng qua hotline
+          </a>
           <Link className="button ghost compact-detail" href={`/products/${product.slug}`}>Chi tiết</Link>
         </div>
       </div>

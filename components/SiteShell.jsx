@@ -1,5 +1,4 @@
 import SiteHeader from "./SiteHeader";
-import { CartProvider } from "./CartProvider";
 
 export function SiteFooter() {
   return (
@@ -19,10 +18,10 @@ export function SiteFooter() {
 
 export default function SiteShell({ children }) {
   return (
-    <CartProvider>
+    <>
       <SiteHeader />
       {children}
       <SiteFooter />
-    </CartProvider>
+    </>
   );
 }

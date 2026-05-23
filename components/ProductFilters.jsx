@@ -113,7 +113,7 @@ export default function ProductFilters({ products, categories, brands }) {
             <strong>{filtered.length}</strong> <span className="muted">sản phẩm phù hợp</span>
           </div>
           <div className="catalog-toolbar-actions">
-            <span className="muted">Có giá, SKU, tồn kho và COD</span>
+            <span className="muted">Có giá, SKU, tồn kho và hotline tư vấn</span>
           </div>
         </div>
         {filtered.length ? (
