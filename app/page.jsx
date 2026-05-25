@@ -1,134 +1,57 @@
 import Link from "next/link";
-import SiteShell from "@/components/SiteShell";
-import ProductCard from "@/components/ProductCard";
+import ContactEmailForm from "@/components/ContactEmailForm";
 import HomeCarousel from "@/components/HomeCarousel";
-import HomeIndustrySections from "@/components/HomeIndustrySections";
+import ProductCard from "@/components/ProductCard";
+import SiteShell from "@/components/SiteShell";
 import { getCatalog, getFeaturedProducts } from "@/lib/catalog";
 
 export const metadata = {
   title: "QE Agency Trading",
   description:
-    "QE Agency Trading cung cấp catalog hóa chất công nghiệp, bình xịt Sprayway, keo xịt TPR và vật tư ngành may, in lưới, bảo trì cho doanh nghiệp Việt Nam.",
+    "QE Agency Trading cung cấp giải pháp hóa chất công nghiệp, Sprayway, TPR và vật tư ngành may, in lụa, garage, bảo trì nhà xưởng cho khách hàng B2B tại Việt Nam.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: "QE Agency Trading",
     description:
-      "Nhà phân phối hóa chất công nghiệp, Sprayway, TPR và vật tư ngành may tại Việt Nam.",
+      "Corporate website bán hàng B2B cho hóa chất công nghiệp, Sprayway, TPR và vật tư ngành may tại Việt Nam.",
     url: "/",
   },
 };
 
-const applications = [
+const solutionCards = [
   {
-    name: "Mỹ thuật",
-    href: `/products?application=${encodeURIComponent("Mỹ Thuật")}`,
-    icon: "/assets/037b2e8f96ff96bb.png",
-    note: "Keo xịt và hóa chất hỗ trợ sáng tạo",
-  },
-  {
-    name: "Ngoại thất ô tô",
-    href: `/products?application=${encodeURIComponent("Ngoại Thất Ô tô")}`,
-    icon: "/assets/e523cfe353a5ee44.png",
-    note: "Chăm sóc và bảo dưỡng ngoại thất xe",
-  },
-  {
-    name: "Phụ tùng ô tô",
-    href: `/products?application=${encodeURIComponent("Phụ Tùng Ô tô")}`,
-    icon: "/assets/88da472562e70d5b.png",
-    note: "Vệ sinh, bôi trơn và bảo trì phụ tùng",
-  },
-  {
-    name: "Thiết bị ô tô",
-    href: `/products?application=${encodeURIComponent("Thiết Bị Ô tô")}`,
-    icon: "/assets/b9abdeb44fb18fd9.png",
-    note: "Dòng sản phẩm hỗ trợ chăm sóc xe",
-  },
-  {
-    name: "Thiết bị tự động",
-    href: `/products?application=${encodeURIComponent("Thiết Bị Tự Động")}`,
-    icon: "/assets/9e758d7b496e0a56.png",
-    note: "Bảo trì máy móc và thiết bị tự động",
-  },
-  {
-    name: "Điện tử văn phòng",
-    href: `/products?application=${encodeURIComponent("Điện Tử & Văn Phòng")}`,
-    icon: "/assets/2f022cec872d240e.png",
-    note: "Vệ sinh bo mạch và thiết bị văn phòng",
-  },
-  {
-    name: "Gia dụng & nội thất",
-    href: `/products?application=${encodeURIComponent("Gia Dụng & Nội Thất")}`,
-    icon: "/assets/0812d751f89870ec.png",
-    note: "Làm sạch, chăm sóc đồ gia dụng",
-  },
-  {
-    name: "Kiếng và gương",
-    href: `/products?application=${encodeURIComponent("Kiếng và Gương")}`,
-    icon: "/assets/ec52e4f6fc0786f0.png",
-    note: "Lau kính, bảo vệ cạnh gương",
-  },
-  {
-    name: "Nghệ thuật quảng cáo",
-    href: `/products?application=${encodeURIComponent("Nghệ Thuật Quảng Cáo")}`,
-    icon: "/assets/8b98934db678e8ea.png",
-    note: "Vật tư cho quảng cáo và gia công",
-  },
-  {
-    name: "Dịch vụ sửa chữa",
-    href: `/products?application=${encodeURIComponent("Dịch Vụ Sửa Chữa")}`,
-    icon: "/assets/b384b432c9a591eb.png",
-    note: "Hỗ trợ sửa chữa và bảo trì",
-  },
-  {
-    name: "Hàng tiêu dùng",
-    href: `/products?application=${encodeURIComponent("Hàng Tiêu Dùng")}`,
-    icon: "/assets/b4589d71aba3d047.png",
-    note: "Làm sạch, khử mùi, chăm sóc bề mặt",
-  },
-  {
-    name: "Dịch vụ bảo trì",
-    href: `/products?application=${encodeURIComponent("Dịch Vụ Bảo Trì")}`,
-    icon: "/assets/81b41a613503b779.png",
-    note: "Dầu bôi trơn, tẩy dầu mỡ, vệ sinh thiết bị",
-  },
-  {
-    name: "Siêu thị",
-    href: `/products?application=${encodeURIComponent("Siêu Thị")}`,
-    icon: "/assets/0ee045fc765c8149.png",
-    note: "Sản phẩm phù hợp kênh bán lẻ",
-  },
-  {
-    name: "Khung ảnh",
-    href: `/products?application=${encodeURIComponent("Khung Ảnh")}`,
-    icon: "/assets/e2eab80df9cfdaed.png",
-    note: "Keo xịt và vật tư đóng khung",
-  },
-  {
-    name: "In lưới",
-    href: `/products?application=${encodeURIComponent("In Lưới")}`,
-    icon: "/assets/4bff77d67c5f5d33.png",
-    note: "Keo định vị, silicone, hóa chất hỗ trợ in",
-  },
-  {
-    name: "May mặc",
+    title: "Xưởng may & hoàn thiện vải",
     href: `/products?application=${encodeURIComponent("May Mặc")}`,
-    icon: "/assets/8c0fc45c2053b7d9.png",
-    note: "Kéo, keo xịt, tẩy dầu, phụ kiện ngành may",
+    note: "Xử lý vết dầu máy, keo thừa, lỗi bề mặt và thao tác hoàn thiện hàng xuất khẩu.",
+    items: ["Spot Lifter 830/833", "Tẩy dầu nhanh", "Tư vấn test mẫu tại xưởng"],
   },
   {
-    name: "Quảng cáo",
-    href: `/products?application=${encodeURIComponent("Quảng Cáo")}`,
-    icon: "/assets/c751a5d73d1e548e.png",
-    note: "Vật tư cho bảng hiệu và quảng cáo",
+    title: "In lưới, in lụa & quảng cáo",
+    href: `/products?application=${encodeURIComponent("In Lưới")}`,
+    note: "Keo xịt định vị giúp giữ form, giảm lệch hình, hạn chế lem keo và tăng tốc độ in.",
+    items: ["Sprayway 82/84", "Keo định vị pallet", "Giá sỉ theo thùng"],
   },
   {
-    name: "Ngành gỗ",
-    href: `/products?application=${encodeURIComponent("Ngành Gỗ")}`,
-    icon: "/assets/359f1fb176ce1162.png",
-    note: "Keo xịt, vệ sinh và chăm sóc bề mặt gỗ",
+    title: "Garage ô tô & chăm sóc nội thất",
+    href: `/products?application=${encodeURIComponent("Ngoại Thất Ô tô")}`,
+    note: "Làm sạch, bôi trơn, chống gỉ sét và phục hồi bề mặt cho quy trình chăm sóc xe.",
+    items: ["C-60", "Interior Cleaner", "Ship COD toàn quốc"],
   },
+  {
+    title: "Bảo trì máy móc & nhà xưởng",
+    href: `/products?application=${encodeURIComponent("Dịch Vụ Bảo Trì")}`,
+    note: "Giảm tiếng kẹt, bảo vệ chi tiết máy và vệ sinh thiết bị trong môi trường sản xuất.",
+    items: ["Dầu silicone", "Chống rỉ", "Tư vấn đúng mã"],
+  },
+];
+
+const trustStats = [
+  ["15-30 phút", "Phản hồi nhu cầu tư vấn B2B"],
+  ["100%", "Tập trung đúng mã, đúng ứng dụng"],
+  ["Toàn quốc", "Hỗ trợ báo giá và giao hàng"],
+  ["Kho sỉ", "Ưu tiên đơn hàng xưởng/doanh nghiệp"],
 ];
 
 export default async function HomePage() {
@@ -138,7 +61,50 @@ export default async function HomePage() {
   return (
     <SiteShell>
       <HomeCarousel />
-      <HomeIndustrySections />
+
+      <section className="corp-intro-section">
+        <div className="container corp-intro-grid">
+          <div>
+            <span className="corp-eyebrow">Corporate B2B Sales Website</span>
+            <h2>QE Agency Trading đồng hành cùng xưởng sản xuất, garage và doanh nghiệp cần giải pháp hóa chất chuyên dụng.</h2>
+            <p>
+              Website được thiết kế như một trung tâm bán hàng B2B: khách hàng tra cứu sản phẩm, gửi tình trạng cần xử lý, nhận tư vấn đúng mã và báo giá theo số lượng thực tế.
+            </p>
+          </div>
+          <div className="corp-trust-grid">
+            {trustStats.map(([value, label]) => (
+              <div className="corp-trust-card" key={value}>
+                <strong>{value}</strong>
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="applications" className="corp-solutions-section">
+        <div className="container">
+          <div className="corp-section-head">
+            <span>Giải pháp theo ngành</span>
+            <h2>Bán theo nhu cầu vận hành, không chỉ bán theo mã sản phẩm</h2>
+            <p>Khách B2B có thể bắt đầu từ ngành nghề, lỗi cần xử lý hoặc sản phẩm đang dùng. QE Agency sẽ gợi ý đúng nhóm Sprayway, TPR và vật tư phù hợp.</p>
+          </div>
+          <div className="corp-solution-grid">
+            {solutionCards.map((item) => (
+              <Link className="corp-solution-card" href={item.href} key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.note}</p>
+                <ul>
+                  {item.items.map((text) => (
+                    <li key={text}>{text}</li>
+                  ))}
+                </ul>
+                <em>Xem nhóm sản phẩm</em>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section className="consult-process-section">
         <div className="container">
@@ -174,12 +140,29 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="section white">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <h2 className="section-title">Sản phẩm bán hàng B2B nổi bật</h2>
+              <p className="section-copy">Các mã thường được khách xưởng hỏi báo giá, test mẫu và đặt theo thùng/số lượng.</p>
+            </div>
+            <Link className="button ghost" href="/products">Xem tất cả sản phẩm</Link>
+          </div>
+          <div className="product-grid">
+            {featured.map((product) => (
+              <ProductCard key={product.firestoreId || product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="brands" className="section">
         <div className="container">
           <div className="section-head">
             <div>
               <h2 className="section-title">Thương hiệu phân phối</h2>
-              <p className="section-copy">Chọn thương hiệu để xem đúng nhóm sản phẩm phân phối.</p>
+              <p className="section-copy">Chọn thương hiệu để xem đúng nhóm sản phẩm QE Agency đang phân phối và tư vấn.</p>
             </div>
           </div>
           <div className="brand-strip">
@@ -192,44 +175,21 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section white">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <h2 className="section-title">Sản phẩm nổi bật</h2>
-              <p className="section-copy">Một số sản phẩm được đánh dấu tạm để đưa lên trang chủ.</p>
-            </div>
+      <section className="corp-quote-section">
+        <div className="container corp-quote-grid">
+          <div className="corp-quote-copy">
+            <span className="corp-eyebrow">Nhận báo giá B2B</span>
+            <h2>Gửi nhu cầu, QE Agency phản hồi đúng sản phẩm và phương án giá phù hợp.</h2>
+            <p>
+              Cho chúng tôi biết ngành nghề, bề mặt cần xử lý, số lượng dự kiến hoặc mã sản phẩm bạn quan tâm. Đội ngũ QE sẽ phản hồi qua email/hotline trong thời gian sớm nhất.
+            </p>
+            <a className="button ghost" href="tel:0901890811">Gọi trực tiếp 0901 890 811</a>
           </div>
-          <div className="product-grid">
-            {featured.map((product) => (
-              <ProductCard key={product.firestoreId || product.id} product={product} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="applications" className="section">
-        <div className="container">
-          <div className="section-head">
-            <div>
-              <h2 className="section-title">Ứng dụng theo ngành</h2>
-              <p className="section-copy">Khách hàng có thể chọn nhu cầu để vào ngay nhóm sản phẩm phù hợp.</p>
-            </div>
-          </div>
-          <div className="application-icon-grid">
-            {applications.map((item) => (
-              <Link className="application-icon-tile" href={item.href} key={item.name}>
-                <img src={item.icon} alt={item.name} loading="lazy" />
-                <strong>{item.name}</strong>
-                <span>{item.note}</span>
-                <em>Xem sản phẩm</em>
-              </Link>
-            ))}
+          <div className="corp-quote-form">
+            <ContactEmailForm />
           </div>
         </div>
       </section>
     </SiteShell>
   );
 }
-
-

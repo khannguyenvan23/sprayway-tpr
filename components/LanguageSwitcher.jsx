@@ -33,7 +33,7 @@ function removeTranslateChrome() {
   document.documentElement.style.top = "0px";
   document.body.style.top = "0px";
   document.body.style.position = "static";
-  document.querySelectorAll(".goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, iframe.skiptranslate").forEach((node) => {
+  document.querySelectorAll("body > .skiptranslate, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, iframe.skiptranslate").forEach((node) => {
     node.style.display = "none";
     node.style.visibility = "hidden";
   });
