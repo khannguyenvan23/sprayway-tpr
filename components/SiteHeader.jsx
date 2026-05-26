@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import LanguageSwitcher from "./LanguageSwitcher";
+import SearchSuggestInput from "./SearchSuggestInput";
 
 export default function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +17,12 @@ export default function SiteHeader() {
     closeMenu();
   }
 
+  function openSuggestion(suggestion) {
+    if (!suggestion?.href) return;
+    window.location.href = suggestion.href;
+    closeMenu();
+  }
+
   return (
     <header className="site-header">
       <div className="container nav">
@@ -24,10 +31,11 @@ export default function SiteHeader() {
         </Link>
 
         <form className="header-search" onSubmit={submitSearch}>
-          <input
-            aria-label="Tìm kiếm sản phẩm"
+          <SearchSuggestInput
+            ariaLabel="Tìm kiếm sản phẩm"
             value={search}
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={setSearch}
+            onSelect={openSuggestion}
             placeholder="Tìm sản phẩm, SKU, thương hiệu..."
           />
           <button type="submit">Tìm</button>
@@ -48,10 +56,11 @@ export default function SiteHeader() {
 
         <nav id="primary-nav" className={`nav-list${isOpen ? " open" : ""}`} aria-label="Chính">
           <form className="mobile-search" onSubmit={submitSearch}>
-            <input
-              aria-label="Tìm kiếm sản phẩm trên điện thoại"
+            <SearchSuggestInput
+              ariaLabel="Tìm kiếm sản phẩm trên điện thoại"
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={setSearch}
+              onSelect={openSuggestion}
               placeholder="Tìm sản phẩm..."
             />
             <button type="submit">Tìm</button>

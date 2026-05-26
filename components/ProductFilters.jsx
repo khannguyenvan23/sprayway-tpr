@@ -3,6 +3,37 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "./ProductCard";
+import SearchSuggestInput from "./SearchSuggestInput";
+
+function normalizeText(value = "") {
+  return repairText(value)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function repairText(value = "") {
+  const text = String(value || "");
+  const mojibakePattern = /[\u00c2\u00c3\u00c4\u00c6\u00e2][\u0080-\u00ff\u201a\u20ac]?|\u00e1[\u00ba\u00bb]/;
+  if (!mojibakePattern.test(text)) return text;
+
+  const decodePart = (part) => {
+    try {
+      const decoded = new TextDecoder("utf-8").decode(Uint8Array.from(Array.from(part), (char) => char.charCodeAt(0) & 255));
+      return decoded.includes("�") ? part : decoded;
+    } catch {
+      return part;
+    }
+  };
+
+  const decoded = decodePart(text);
+  if (decoded !== text) return decoded;
+
+  return text
+    .split(/(\s+)/)
+    .map((part) => (mojibakePattern.test(part) ? decodePart(part) : part))
+    .join("");
+}
 
 export default function ProductFilters({ products, categories, brands }) {
   const searchParams = useSearchParams();
@@ -14,10 +45,10 @@ export default function ProductFilters({ products, categories, brands }) {
   const [filtersOpen, setFiltersOpen] = useState(false);
 
   const filtered = useMemo(() => {
-    const keyword = query.trim().toLowerCase();
+    const keyword = normalizeText(query.trim());
     const nextProducts = products.filter((product) => {
       const searchText = product.searchText || `${product.name} ${product.sku} ${product.brand} ${product.category}`;
-      const matchesQuery = !keyword || searchText.toLowerCase().includes(keyword);
+      const matchesQuery = !keyword || normalizeText(searchText).includes(keyword);
       const matchesCategory = !category || product.category === category;
       const matchesBrand = !brand || product.brand === brand;
       const matchesApplication = !application || product.applications?.includes(application);
@@ -50,14 +81,19 @@ export default function ProductFilters({ products, categories, brands }) {
       <aside className={`filter-panel${filtersOpen ? " open" : ""}`}>
         <div className="filter-title-row">
           <h2>Lọc sản phẩm</h2>
-          <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Đóng bộ lọc">×</button>
+          <button type="button" onClick={() => setFiltersOpen(false)} aria-label="Đóng bộ lọc">
+            ×
+          </button>
         </div>
         <div className="field">
           <label htmlFor="query">Tìm kiếm</label>
-          <input
+          <SearchSuggestInput
+            ariaLabel="Tìm kiếm sản phẩm"
             id="query"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
+            onChange={setQuery}
+            onSelect={(suggestion) => setQuery(suggestion.name)}
+            products={products}
             placeholder="Nhập mã, tên, ứng dụng..."
           />
         </div>
