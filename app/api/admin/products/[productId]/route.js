@@ -18,11 +18,20 @@ export async function PATCH(request, { params }) {
       body.category,
     );
 
+    const { data: currentProduct, error: currentError } = await supabase
+      .from("products")
+      .select("metadata")
+      .eq("id", params.productId)
+      .maybeSingle();
+
+    if (currentError) throw currentError;
+
     const payload = buildPatchPayload(body, {
       brandId,
       categoryId,
       brandName,
       categoryName,
+      metadata: currentProduct?.metadata || {},
     });
 
     const { data, error } = await supabase
@@ -102,6 +111,12 @@ async function upsertNamedRow(supabase, table, name) {
 
 function buildPatchPayload(body, relationIds) {
   const now = new Date().toISOString();
+  const nextMetadata = {
+    ...(relationIds.metadata || {}),
+    ...(body.bestSeller !== undefined ? { best_seller: Boolean(body.bestSeller) } : {}),
+    updated_at: now,
+  };
+
   const payload = {
     name: body.name ? String(body.name).trim() : undefined,
     sku: body.sku !== undefined ? String(body.sku).trim() || null : undefined,
@@ -114,6 +129,7 @@ function buildPatchPayload(body, relationIds) {
     short_description: body.shortDescription !== undefined ? String(body.shortDescription || "").trim() : undefined,
     description: body.fullDescription !== undefined ? String(body.fullDescription || "").trim() : undefined,
     image_url: body.image !== undefined ? String(body.image || "").trim() || null : undefined,
+    metadata: body.bestSeller !== undefined ? nextMetadata : undefined,
     updated_at: now,
   };
 

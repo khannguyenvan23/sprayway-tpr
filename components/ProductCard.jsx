@@ -7,6 +7,7 @@ export default function ProductCard({ product }) {
     <article className="product-card">
       <div className="product-badge-row">
         <span className="shop-badge">{product.brand || "Sản phẩm"}</span>
+        {product.bestSeller ? <span className="stock-badge available">Bán chạy</span> : null}
       </div>
       <Link className="product-card-link" href={`/products/${product.slug}`}>
         <div className="product-media">

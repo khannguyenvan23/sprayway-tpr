@@ -123,6 +123,7 @@ function buildProductPayload(body, relationIds) {
       code: body.code || null,
       original_name: body.originalName || body.name || null,
       applications: body.applications || [],
+      best_seller: Boolean(body.bestSeller),
       source_url: body.sourceUrl || null,
       search_text: body.searchText || null,
       import_source: "admin-panel",

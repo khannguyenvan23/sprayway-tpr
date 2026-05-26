@@ -30,6 +30,7 @@ const emptyDraft = {
   category: "",
   status: "active",
   featured: false,
+  bestSeller: false,
   shortDescription: "",
   fullDescription: "",
   image: "",
@@ -156,6 +157,7 @@ export default function AdminProductsClient() {
       category: product.category || "",
       status: product.status || "needs_review",
       featured: Boolean(product.featured),
+      bestSeller: Boolean(product.bestSeller),
       shortDescription: product.shortDescription || "",
       fullDescription: product.fullDescription || "",
       image: product.image || product.assetPath || "",
@@ -219,6 +221,7 @@ export default function AdminProductsClient() {
         category: nextProducts[0].category || "",
         status: nextProducts[0].status || "needs_review",
         featured: Boolean(nextProducts[0].featured),
+        bestSeller: Boolean(nextProducts[0].bestSeller),
         shortDescription: nextProducts[0].shortDescription || "",
         fullDescription: nextProducts[0].fullDescription || "",
         image: nextProducts[0].image || nextProducts[0].assetPath || "",
@@ -326,6 +329,12 @@ export default function AdminProductsClient() {
                 <strong>{formatPrice(Number(draft.price), selected?.currency || "VND")}</strong>
               </div>
             </div>
+            <div className="field check-field">
+              <label>
+                <input name="bestSeller" type="checkbox" checked={draft.bestSeller} onChange={updateDraft} />
+                Sản phẩm bán chạy
+              </label>
+            </div>
             <div className="field">
               <label htmlFor="product-name">Tên sản phẩm</label>
               <input id="product-name" name="name" value={draft.name} onChange={updateDraft} required />
@@ -423,6 +432,7 @@ function normalizeProductDraft(draft, selected) {
     category: draft.category.trim(),
     status: draft.status || "active",
     featured: Boolean(draft.featured),
+    bestSeller: Boolean(draft.bestSeller),
     shortDescription: draft.shortDescription.trim(),
     fullDescription: draft.fullDescription.trim(),
     currency: selected?.currency || "VND",
