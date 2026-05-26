@@ -537,6 +537,10 @@ body.translated-rtl {
   background: #fff;
 }
 
+.product-detail-content-section {
+  padding-top: 34px;
+}
+
 .section-head {
   display: flex;
   align-items: flex-end;
@@ -1085,11 +1089,14 @@ body.translated-rtl {
 }
 
 .footer-brand img {
-  width: 150px;
+  width: min(100%, 300px);
   height: auto;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: #fff;
+  display: block;
+  object-fit: contain;
+}
+
+.footer-brand-logo {
+  margin-bottom: 6px;
 }
 
 .footer-brand p,

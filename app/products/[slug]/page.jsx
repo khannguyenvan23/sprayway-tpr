@@ -108,20 +108,7 @@ export default async function ProductDetailPage({ params }) {
         </div>
       </section>
 
-      {product.fullDescription ? (
-        <section className="section">
-          <div className="container">
-            <div className="product-description">
-              <h2>Mô tả sản phẩm</h2>
-              {product.fullDescription.split("\n").map((line) => (
-                <p key={line}>{line}</p>
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      <section className={product.fullDescription ? "section white" : "section"}>
+      <section className="section product-detail-content-section">
         <div className="container">
           <div className="product-description seo-product-content">
             <h2>Thông tin chi tiết về {product.name}</h2>

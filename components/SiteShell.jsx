@@ -7,7 +7,7 @@ export function SiteFooter() {
     <footer className="footer">
       <div className="container footer-inner">
         <div className="footer-brand">
-          <img src="/logo-01-main.png" alt="QE Agency Trading" />
+          <img className="footer-brand-logo" src="/Banner_web3.png" alt="QE Agency Trading" />
           <p>
             Nhà cung cấp sản phẩm công nghiệp chuyên dụng và giải pháp kỹ thuật số cho xưởng may, in lụa, bảo trì và doanh nghiệp SME.
           </p>
