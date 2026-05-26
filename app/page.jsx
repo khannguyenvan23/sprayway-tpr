@@ -51,10 +51,10 @@ const solutionCards = [
 ];
 
 const trustStats = [
-  ["15-30 phút", "Phản hồi nhu cầu tư vấn B2B"],
-  ["100%", "Tập trung đúng mã, đúng ứng dụng"],
-  ["Toàn quốc", "Hỗ trợ báo giá và giao hàng"],
-  ["Kho sỉ", "Ưu tiên đơn hàng xưởng/doanh nghiệp"],
+  ["15 phút phản hồi", "Đội ngũ kỹ thuật giải quyết ngay nhu cầu tư vấn kỹ thuật và báo giá B2B."],
+  ["100% chính hãng", "Cam kết đúng mã, đúng ứng dụng kỹ thuật. Hoàn tiền nếu không đạt tiêu chuẩn thử nghiệm."],
+  ["Giao hàng toàn quốc", "Tối ưu chi phí logistics, hỗ trợ giao hàng nhanh tận xưởng."],
+  ["Chính sách kho sỉ", "Chiết khấu thương mại hấp dẫn cho đơn hàng doanh nghiệp và đối tác dài hạn."],
 ];
 
 export default async function HomePage() {
@@ -70,9 +70,9 @@ export default async function HomePage() {
         <div className="container corp-intro-grid">
           <div>
             <span className="corp-eyebrow">Corporate B2B Sales Website</span>
-            <h2>QE Agency Trading đồng hành cùng xưởng sản xuất, garage và doanh nghiệp cần giải pháp hóa chất chuyên dụng.</h2>
+            <h2>QE Agency Trading - Giải pháp hóa chất chuyên dụng cho xưởng sản xuất và garage quy mô lớn.</h2>
             <p>
-              Website được thiết kế như một trung tâm bán hàng B2B: khách hàng tra cứu sản phẩm, gửi tình trạng cần xử lý, nhận tư vấn đúng mã và báo giá theo số lượng thực tế.
+              Nền tảng tra cứu và cung ứng hóa chất B2B trực tuyến. Tìm đúng mã, nhận tư vấn giải pháp xử lý bề mặt chuyên sâu và nhận báo giá sỉ tối ưu theo số lượng thực tế của doanh nghiệp bạn.
             </p>
           </div>
           <div className="corp-trust-grid">

@@ -3717,13 +3717,13 @@ body.translated-rtl {
 
 .corp-trust-card strong {
   color: var(--brand);
-  font-size: 28px;
-  line-height: 1;
+  font-size: 25px;
+  line-height: 1.12;
 }
 
 .corp-trust-card span {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.45;
 }
