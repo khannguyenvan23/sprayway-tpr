@@ -2667,6 +2667,7 @@ body.translated-rtl {
 .mobile-search {
   display: flex;
   align-items: center;
+  gap: 8px;
   position: relative;
 }
 
@@ -2681,9 +2682,9 @@ body.translated-rtl {
   width: 100%;
   min-height: 42px;
   border: 1px solid var(--line);
-  border-right: 0;
-  border-radius: 8px 0 0 8px;
-  padding: 0 13px;
+  border-radius: 6px;
+  padding: 0 12px;
+  background: #fff;
   color: var(--ink);
   font: inherit;
   outline: none;
@@ -2693,6 +2694,10 @@ body.translated-rtl {
   position: relative;
   flex: 1;
   min-width: 0;
+}
+
+.field .search-suggest {
+  width: 100%;
 }
 
 .search-suggest-menu {
@@ -2759,7 +2764,7 @@ body.translated-rtl {
 .mobile-search button {
   min-height: 42px;
   border: 1px solid var(--brand);
-  border-radius: 0 8px 8px 0;
+  border-radius: 6px;
   padding: 0 16px;
   background: var(--brand);
   color: #fff;

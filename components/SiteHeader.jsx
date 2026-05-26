@@ -36,7 +36,7 @@ export default function SiteHeader() {
             value={search}
             onChange={setSearch}
             onSelect={openSuggestion}
-            placeholder="Tìm sản phẩm, SKU, thương hiệu..."
+            placeholder="Nhập mã, tên, ứng dụng..."
           />
           <button type="submit">Tìm</button>
         </form>
@@ -61,7 +61,7 @@ export default function SiteHeader() {
               value={search}
               onChange={setSearch}
               onSelect={openSuggestion}
-              placeholder="Tìm sản phẩm..."
+              placeholder="Nhập mã, tên, ứng dụng..."
             />
             <button type="submit">Tìm</button>
           </form>
