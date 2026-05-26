@@ -188,7 +188,7 @@ export default function AdminProductsClient() {
         setMessage("Đã thêm sản phẩm mới.");
       } else if (selected) {
         const updated = await updateAdminProduct(session.idToken, selected.firestoreId, patch);
-        const merged = { ...selected, ...updated, ...patch };
+        const merged = { ...selected, ...patch, ...updated };
         setProducts((current) => current.map((product) => product.firestoreId === selected.firestoreId ? merged : product));
         setSelected(merged);
         setMessage("Đã lưu sản phẩm.");
@@ -437,7 +437,7 @@ function normalizeProductDraft(draft, selected) {
     fullDescription: draft.fullDescription.trim(),
     currency: selected?.currency || "VND",
     image,
-    assetPath: image.startsWith("/assets/") ? image : "",
+    assetPath: image,
     sourceUrl: selected?.sourceUrl || "",
     applications: selected?.applications || [],
     searchText: `${name} ${sku} ${draft.brand} ${draft.category} ${draft.shortDescription}`.toLowerCase(),
