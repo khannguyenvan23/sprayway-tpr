@@ -4,7 +4,6 @@ const items = [
   { href: "/admin", label: "Tổng quan" },
   { href: "/admin/products", label: "Sản phẩm" },
   { href: "/admin/categories", label: "Chuyên mục" },
-  { href: "/admin/orders", label: "Đơn hàng" },
   { href: "/", label: "Xem website" },
 ];
 

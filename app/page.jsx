@@ -20,6 +20,9 @@ export const metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const solutionCards = [
   {
     title: "Xưởng may & hoàn thiện vải",
@@ -139,6 +142,7 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {bestSellers.length ? (
       <section className="section white">
         <div className="container">
           <div className="section-head">
@@ -155,6 +159,7 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section id="brands" className="section">
         <div className="container">

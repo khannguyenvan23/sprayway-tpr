@@ -3,40 +3,33 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { adminEmailDefault, clearAdminSession, readAdminSession, saveAdminSession } from "@/lib/admin-session";
-import { listAdminProducts, listOrders, signInAdmin } from "@/lib/firebase-client";
-import { formatPrice } from "@/lib/product-utils";
+import { listAdminProducts, signInAdmin } from "@/lib/firebase-client";
 
 export default function AdminDashboardClient() {
   const [session, setSession] = useState(() => readAdminSession());
   const [email, setEmail] = useState(session?.email || adminEmailDefault);
   const [password, setPassword] = useState("");
   const [products, setProducts] = useState([]);
-  const [orders, setOrders] = useState([]);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const stats = useMemo(() => {
-    const pendingOrders = orders.filter((order) => order.status === "pending_confirmation");
     const activeProducts = products.filter((product) => product.status === "active");
     const outOfStock = products.filter((product) => Number(product.stock || 0) <= 0);
     const lowStock = products.filter((product) => Number(product.stock || 0) > 0 && Number(product.stock || 0) <= 10);
-    const revenue = orders
-      .filter((order) => order.status !== "cancelled")
-      .reduce((sum, order) => sum + Number(order.total || 0), 0);
+    const bestSellers = products.filter((product) => product.bestSeller);
 
     return {
       activeProducts: activeProducts.length,
+      bestSellers: bestSellers.length,
       lowStock,
       outOfStock: outOfStock.length,
-      pendingOrders,
       products: products.length,
-      orders: orders.length,
-      revenue,
     };
-  }, [orders, products]);
+  }, [products]);
 
   useEffect(() => {
-    if (session?.idToken && !products.length && !orders.length) {
+    if (session?.idToken && !products.length) {
       loadDashboard(session.idToken);
     }
   }, [session]);
@@ -63,12 +56,7 @@ export default function AdminDashboardClient() {
     setIsLoading(true);
     setMessage("");
     try {
-      const [nextProducts, nextOrders] = await Promise.all([
-        listAdminProducts(idToken),
-        listOrders(idToken),
-      ]);
-      setProducts(nextProducts);
-      setOrders(nextOrders);
+      setProducts(await listAdminProducts(idToken));
     } catch (error) {
       setMessage(error.message || "Không thể tải dữ liệu quản trị.");
     } finally {
@@ -80,7 +68,6 @@ export default function AdminDashboardClient() {
     clearAdminSession();
     setSession(null);
     setProducts([]);
-    setOrders([]);
   }
 
   if (!session) {
@@ -88,7 +75,7 @@ export default function AdminDashboardClient() {
       <div className="admin-dashboard-grid">
         <form className="admin-login admin-login-panel" onSubmit={handleSignIn}>
           <h2>Đăng nhập admin</h2>
-          <p>Quản lý sản phẩm, tồn kho và đơn hàng COD từ Firestore.</p>
+          <p>Quản lý sản phẩm, chuyên mục, tồn kho và sản phẩm bán chạy.</p>
           <div className="field">
             <label htmlFor="admin-dashboard-email">Email admin</label>
             <input id="admin-dashboard-email" value={email} onChange={(event) => setEmail(event.target.value)} />
@@ -105,14 +92,12 @@ export default function AdminDashboardClient() {
 
         <div className="admin-welcome-panel">
           <span>QE Agency Commerce</span>
-          <h2>Trung tâm điều hành website bán hàng</h2>
-          <p>Theo dõi sản phẩm, cập nhật giá/tồn kho, xử lý đơn COD và chuẩn bị mở rộng ecommerce.</p>
+          <h2>Trung tâm điều hành catalog bán hàng</h2>
+          <p>Theo dõi sản phẩm, cập nhật tồn kho, chọn sản phẩm bán chạy và quản lý chuyên mục hiển thị trên website.</p>
         </div>
       </div>
     );
   }
-
-  const recentOrders = orders.slice(0, 5);
 
   return (
     <div className="admin-dashboard">
@@ -133,34 +118,11 @@ export default function AdminDashboardClient() {
 
       <div className="admin-stat-grid">
         <StatCard label="Sản phẩm" value={stats.products} helper={`${stats.activeProducts} đang bán`} />
-        <StatCard label="Đơn COD" value={stats.orders} helper={`${stats.pendingOrders.length} chờ xác nhận`} />
+        <StatCard label="Bán chạy" value={stats.bestSellers} helper="Đang ưu tiên ngoài trang chủ" />
         <StatCard label="Tồn kho thấp" value={stats.lowStock.length} helper={`${stats.outOfStock} hết hàng`} />
-        <StatCard label="Doanh thu COD" value={formatPrice(stats.revenue)} helper="Không tính đơn đã hủy" />
       </div>
 
       <div className="admin-workbench">
-        <section className="admin-panel">
-          <div className="admin-panel-head">
-            <div>
-              <h2>Việc cần xử lý</h2>
-              <p>Ưu tiên xác nhận đơn và rà soát tồn kho thấp.</p>
-            </div>
-            <Link className="button primary" href="/admin/orders">Xem đơn hàng</Link>
-          </div>
-          <div className="admin-task-list">
-            {stats.pendingOrders.slice(0, 4).map((order) => (
-              <Link className="admin-task-row" href="/admin/orders" key={order.id}>
-                <span>
-                  <strong>{order.id}</strong>
-                  <small>{order.customer?.name} - {order.customer?.phone}</small>
-                </span>
-                <b>{formatPrice(order.total)}</b>
-              </Link>
-            ))}
-            {!stats.pendingOrders.length ? <div className="empty compact-empty">Không có đơn chờ xác nhận.</div> : null}
-          </div>
-        </section>
-
         <section className="admin-panel">
           <div className="admin-panel-head">
             <div>
@@ -182,27 +144,29 @@ export default function AdminDashboardClient() {
             {!stats.lowStock.length ? <div className="empty compact-empty">Chưa có sản phẩm tồn kho thấp.</div> : null}
           </div>
         </section>
-      </div>
 
-      <section className="admin-panel">
-        <div className="admin-panel-head">
-          <div>
-            <h2>Đơn gần đây</h2>
-            <p>Theo dõi nhanh luồng đặt hàng COD mới nhất.</p>
-          </div>
-        </div>
-        <div className="admin-recent-orders">
-          {recentOrders.map((order) => (
-            <div className="admin-recent-row" key={order.id}>
-              <strong>{order.id}</strong>
-              <span>{order.customer?.name || "Khách hàng"}</span>
-              <span>{statusLabel(order.status)}</span>
-              <b>{formatPrice(order.total)}</b>
+        <section className="admin-panel">
+          <div className="admin-panel-head">
+            <div>
+              <h2>Sản phẩm bán chạy</h2>
+              <p>Tick sản phẩm bán chạy trong trang quản lý sản phẩm để hiển thị ưu tiên.</p>
             </div>
-          ))}
-          {!recentOrders.length ? <div className="empty compact-empty">Chưa có đơn hàng.</div> : null}
-        </div>
-      </section>
+            <Link className="button primary" href="/admin/products">Chọn sản phẩm</Link>
+          </div>
+          <div className="admin-task-list">
+            {products.filter((product) => product.bestSeller).slice(0, 5).map((product) => (
+              <Link className="admin-task-row" href="/admin/products" key={product.firestoreId}>
+                <span>
+                  <strong>{product.name}</strong>
+                  <small>{product.sku} - {product.brand}</small>
+                </span>
+                <b>Bán chạy</b>
+              </Link>
+            ))}
+            {!stats.bestSellers ? <div className="empty compact-empty">Chưa chọn sản phẩm bán chạy.</div> : null}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
@@ -215,15 +179,4 @@ function StatCard({ label, value, helper }) {
       <small>{helper}</small>
     </article>
   );
-}
-
-function statusLabel(status) {
-  const labels = {
-    pending_confirmation: "Chờ xác nhận",
-    confirmed: "Đã xác nhận",
-    shipping: "Đang giao",
-    completed: "Hoàn tất",
-    cancelled: "Đã hủy",
-  };
-  return labels[status] || status || "Chưa rõ";
 }
