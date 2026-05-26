@@ -41,7 +41,7 @@ const slides = [
       "Bảo vệ dài lâu: tạo lớp màng kháng nước, chống oxy hóa bề mặt, ngăn ngừa gỉ sét quay lại",
       "Ưu đãi hấp dẫn: có giá sỉ cho garage và chai nhỏ tiện lợi cho cá nhân tự chăm sóc tại nhà",
     ],
-    image: "/carousel/img/banner3.jfif",
+    image: "/carousel/img/banner3-a.jfif",
     imageAlt: "Dung dịch bảo dưỡng máy móc Sprayway cho garage",
     href: "/lien-he",
     actionLabel: "Sắm ngay tại Shopee Mall",
