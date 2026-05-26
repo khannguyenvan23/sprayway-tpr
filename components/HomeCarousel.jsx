@@ -27,7 +27,7 @@ const slides = [
       "Tăng tốc độ sản xuất với công thức phun sương dàn đều, giữ độ dính qua hàng chục lượt in",
       "Chuẩn xuất khẩu: thành phần an toàn, bảo vệ sức khỏe thợ in",
     ],
-    image: "/carousel/img/banner2.jfif?v=2",
+    image: "/carousel/img/banner2-2.jfif",
     imageAlt: "Keo xịt định vị Sprayway 82/84 cho in lưới và in lụa",
     href: "/lien-he",
     actionLabel: "Liên hệ nhận giá sỉ xưởng",
