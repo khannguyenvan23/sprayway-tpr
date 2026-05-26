@@ -1,4 +1,62 @@
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Black.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Black.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("/fonts/JosefinSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("/fonts/JosefinSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  src: url("/fonts/JosefinSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
+  --font-main: "Lato", Arial, Helvetica, sans-serif;
+  --font-accent: "Josefin Sans", "Lato", Arial, Helvetica, sans-serif;
   --ink: #172033;
   --muted: #697386;
   --line: #dce3ee;
@@ -24,7 +82,43 @@ body {
   margin: 0;
   color: var(--ink);
   background: #f7f9fc;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-main);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+.nav-list,
+.language-switcher button,
+.button,
+.eyebrow,
+.hero-carousel-copy .eyebrow,
+.hero-primary-action,
+.hero-secondary-action,
+.carousel-tabs button,
+.carousel-dots button,
+.brand-pill,
+.product-card-badge,
+.shop-badge,
+.stock-badge,
+.status-pill,
+.corp-eyebrow,
+.corp-trust-card span,
+.about-tag,
+.about-pill-label,
+.about-pills span,
+.admin-nav,
+.admin-stat-card span,
+.admin-stat-card small,
+.filter-title-row button,
+.quote-call-button,
+.contact-form .button,
+.consult-process-actions .button {
+  font-family: var(--font-accent);
 }
 
 a {

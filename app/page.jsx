@@ -87,7 +87,6 @@ export default async function HomePage() {
           <div className="corp-section-head">
             <span>Giải pháp theo ngành</span>
             <h2>Bán theo nhu cầu vận hành, không chỉ bán theo mã sản phẩm</h2>
-            <p>Khách B2B có thể bắt đầu từ ngành nghề, lỗi cần xử lý hoặc sản phẩm đang dùng. QE Agency sẽ gợi ý đúng nhóm Sprayway, TPR và vật tư phù hợp.</p>
           </div>
           <div className="corp-solution-grid">
             {solutionCards.map((item) => (

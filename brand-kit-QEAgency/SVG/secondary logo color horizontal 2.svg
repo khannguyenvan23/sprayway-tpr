@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 737.82 194.88">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #b30000;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #dd9700;
+      }
+
+      .cls-6 {
+        letter-spacing: .04em;
+      }
+
+      .cls-3 {
+        font-family: Lato-Black, Lato;
+        font-size: 102.64px;
+      }
+
+      .cls-5 {
+        font-family: Lato-Regular, Lato;
+        font-size: 34.18px;
+        letter-spacing: .16em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-5" transform="translate(388.43 188.64)"><tspan x="0" y="0">VIETNAM</tspan></text>
+      <text class="cls-3" transform="translate(226.57 126.15)"><tspan x="0" y="0">OE </tspan><tspan class="cls-6" x="159.91" y="0">A</tspan><tspan class="cls-1" x="239.67" y="0">ge</tspan><tspan x="345.08" y="0">ncy</tspan></text>
+      <path class="cls-4" d="M285.05,123.13c-3.41-1.1-6.35-3.28-8.39-6.14-1.94-2.71-3.09-6.04-3.09-9.63h-10.4c0,5.89,1.89,11.34,5.09,15.77,2.23,3.08,5.09,5.67,8.39,7.59,3.97,2.29,8.57,3.61,13.48,3.61v-10.4c-1.78,0-3.49-.28-5.09-.8Z"/>
+      <path class="cls-2" d="M108.39,134.64h85.97v-37.46h0C194.35,43.51,150.84,0,97.18,0,43.51,0,0,43.51,0,97.18s43.51,97.18,97.18,97.18h97.18v-37.46H97.18c-32.98,0-59.71-26.74-59.71-59.71s26.74-59.71,59.71-59.71,59.71,26.74,59.71,59.71h-48.5s0,37.46,0,37.46Z"/>
+      <path class="cls-4" d="M176,154.01c-12.31-3.97-22.87-11.82-30.23-22.12-7-9.78-11.13-21.77-11.13-34.72h-37.46c0,21.22,6.81,40.85,18.35,56.84,8.02,11.1,18.33,20.45,30.23,27.34,14.29,8.27,30.89,13,48.59,13v-37.46c-6.4,0-12.57-1.01-18.35-2.88Z"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.25 157.44">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #dd9700;
+      }
+
+      .cls-4 {
+        letter-spacing: .04em;
+      }
+
+      .cls-5 {
+        fill: #b30000;
+        font-family: Lato-Black, Lato;
+        font-size: 102.64px;
+      }
+
+      .cls-3 {
+        font-family: Lato-Regular, Lato;
+        font-size: 34.18px;
+        letter-spacing: .16em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <text class="cls-3" transform="translate(161.86 151.2)"><tspan x="0" y="0">VIETNAM</tspan></text>
+      <text class="cls-5" transform="translate(0 88.71)"><tspan x="0" y="0">OE </tspan><tspan class="cls-4" x="159.91" y="0">A</tspan><tspan class="cls-1" x="239.67" y="0">ge</tspan><tspan x="345.08" y="0">ncy</tspan></text>
+      <path class="cls-2" d="M58.48,85.69c-3.41-1.1-6.35-3.28-8.39-6.14-1.94-2.71-3.09-6.04-3.09-9.63h-10.4c0,5.89,1.89,11.34,5.09,15.77,2.23,3.08,5.09,5.67,8.39,7.59,3.97,2.29,8.57,3.61,13.48,3.61v-10.4c-1.78,0-3.49-.28-5.09-.8Z"/>
+    </g>
+  </g>
+</svg>

@@ -11,11 +11,11 @@ export default function AdminPage() {
     <SiteShell>
       <section className="section white">
         <div className="container">
-          <p className="breadcrumb">Admin / Tá»•ng quan</p>
+          <p className="breadcrumb">Admin / Tổng quan</p>
           <div className="section-head">
             <div>
-              <h1 className="section-title">Báº£ng Ä‘iá»u khiá»ƒn admin</h1>
-              <p className="section-copy">Quáº£n lÃ½ sáº£n pháº©m, tá»“n kho vÃ  Ä‘Æ¡n hÃ ng COD trong má»™t khu vá»±c riÃªng.</p>
+              <h1 className="section-title">Bảng điều khiển admin</h1>
+              <p className="section-copy">Quản lý sản phẩm, tồn kho và đơn hàng COD trong một khu vực riêng.</p>
             </div>
           </div>
           <AdminNav active="/admin" />

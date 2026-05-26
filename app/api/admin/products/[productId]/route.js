@@ -61,7 +61,7 @@ export async function DELETE(request, { params }) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     return NextResponse.json(
-      { error: error.message || "KhÃ´ng thá»ƒ xÃ³a sáº£n pháº©m." },
+      { error: error.message || "Không thể xóa sản phẩm." },
       { status: 500 },
     );
   }
