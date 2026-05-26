@@ -3,7 +3,7 @@ import ContactEmailForm from "@/components/ContactEmailForm";
 import HomeCarousel from "@/components/HomeCarousel";
 import ProductCard from "@/components/ProductCard";
 import SiteShell from "@/components/SiteShell";
-import { getBestSellerProducts, getCatalog } from "@/lib/catalog";
+import { getBestSellerProducts, getCatalog, getFeaturedProducts } from "@/lib/catalog";
 
 export const metadata = {
   title: "QE Agency Trading",
@@ -60,6 +60,7 @@ const trustStats = [
 export default async function HomePage() {
   const { brands } = await getCatalog();
   const bestSellers = await getBestSellerProducts(8);
+  const featuredProducts = await getFeaturedProducts(8);
 
   return (
     <SiteShell>
@@ -154,6 +155,25 @@ export default async function HomePage() {
           </div>
           <div className="product-grid">
             {bestSellers.map((product) => (
+              <ProductCard key={product.firestoreId || product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+      ) : null}
+
+      {featuredProducts.length ? (
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <div>
+              <h2 className="section-title">Sản phẩm nổi bật</h2>
+              <p className="section-copy">Các sản phẩm được admin chọn để giới thiệu nổi bật cho khách hàng cần tư vấn nhanh.</p>
+            </div>
+            <Link className="button ghost" href="/products">Xem tất cả sản phẩm</Link>
+          </div>
+          <div className="product-grid">
+            {featuredProducts.map((product) => (
               <ProductCard key={product.firestoreId || product.id} product={product} />
             ))}
           </div>
