@@ -3,7 +3,7 @@ import AdminNav from "@/components/AdminNav";
 import AdminProductsClient from "@/components/AdminProductsClient";
 
 export const metadata = {
-  title: "Admin sản phẩm | QE Agency Trading",
+  title: "Admin sản phẩm",
 };
 
 export default function AdminProductsPage() {

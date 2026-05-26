@@ -3,7 +3,7 @@ import AdminNav from "@/components/AdminNav";
 import SiteShell from "@/components/SiteShell";
 
 export const metadata = {
-  title: "Admin | QE Agency Trading",
+  title: "Admin",
 };
 
 export default function AdminPage() {

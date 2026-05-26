@@ -2,7 +2,7 @@ import CustomerAccountClient from "@/components/CustomerAccountClient";
 import SiteShell from "@/components/SiteShell";
 
 export const metadata = {
-  title: "Tài khoản khách hàng | QE Agency",
+  title: "Tài khoản khách hàng",
 };
 
 export default function AccountPage() {

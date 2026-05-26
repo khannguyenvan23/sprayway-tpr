@@ -4,7 +4,7 @@ import ProductFilters from "@/components/ProductFilters";
 import { getCatalog } from "@/lib/catalog";
 
 export const metadata = {
-  title: "Sáº£n pháº©m | QE Agency Trading",
+  title: "Sản phẩm",
 };
 
 export default async function ProductsPage() {
@@ -14,16 +14,16 @@ export default async function ProductsPage() {
     <SiteShell>
       <section className="section white">
         <div className="container">
-          <p className="breadcrumb">Trang chá»§ / Sáº£n pháº©m</p>
+          <p className="breadcrumb">Trang chủ / Sản phẩm</p>
           <div className="section-head shop-head">
             <div>
-              <h1 className="section-title">Táº¥t cáº£ sáº£n pháº©m</h1>
+              <h1 className="section-title">Tất cả sản phẩm</h1>
               <p className="section-copy">
-                Chá»n nhanh theo thÆ°Æ¡ng hiá»‡u, danh má»¥c vÃ  nhu cáº§u sá»­ dá»¥ng Ä‘á»ƒ tÃ¬m Ä‘Ãºng sáº£n pháº©m cáº§n tÆ° váº¥n.
+                Chọn nhanh theo thương hiệu, danh mục và nhu cầu sử dụng để tìm đúng sản phẩm cần tư vấn.
               </p>
             </div>
           </div>
-          <Suspense fallback={<div className="empty">Äang táº£i sáº£n pháº©m...</div>}>
+          <Suspense fallback={<div className="empty">Đang tải sản phẩm...</div>}>
             <ProductFilters products={products} categories={categories} brands={brands} />
           </Suspense>
         </div>

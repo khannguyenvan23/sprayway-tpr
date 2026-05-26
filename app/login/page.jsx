@@ -2,7 +2,7 @@ import CustomerAuthClient from "@/components/CustomerAuthClient";
 import SiteShell from "@/components/SiteShell";
 
 export const metadata = {
-  title: "Đăng nhập khách hàng | QE Agency",
+  title: "Đăng nhập khách hàng",
 };
 
 export default function LoginPage() {

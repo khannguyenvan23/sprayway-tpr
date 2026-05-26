@@ -1,11 +1,11 @@
 import SiteShell from "@/components/SiteShell";
 
 export const metadata = {
-  title: "Về Chúng Tôi | QE Agency Trading",
+  title: "Giới thiệu",
   description:
     "QE Agency Trading kết hợp hệ sinh thái sản phẩm công nghiệp chuyên dụng và giải pháp kỹ thuật số toàn diện cho doanh nghiệp tăng trưởng.",
   openGraph: {
-    title: "Về Chúng Tôi | QE Agency Trading",
+    title: "Giới thiệu | QE Agency Trading",
     description:
       "Giải pháp thực chiến cho doanh nghiệp tăng trưởng: sản phẩm công nghiệp chuyên dụng và kỹ thuật số toàn diện.",
     type: "website",

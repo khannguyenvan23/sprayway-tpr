@@ -2,7 +2,7 @@ import ContactEmailForm from "@/components/ContactEmailForm";
 import SiteShell from "@/components/SiteShell";
 
 export const metadata = {
-  title: "Liên hệ | QE Agency Trading",
+  title: "Liên hệ",
   description:
     "Liên hệ QE Agency Trading để nhận tư vấn sản phẩm công nghiệp, Sprayway, TPR, vật tư ngành may và giải pháp website doanh nghiệp.",
   alternates: {

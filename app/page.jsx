@@ -6,7 +6,9 @@ import SiteShell from "@/components/SiteShell";
 import { getBestSellerProducts, getCatalog, getFeaturedProducts } from "@/lib/catalog";
 
 export const metadata = {
-  title: "QE Agency Trading",
+  title: {
+    absolute: "QE Agency Trading",
+  },
   description:
     "QE Agency Trading cung cấp giải pháp hóa chất công nghiệp, Sprayway, TPR và vật tư ngành may, in lụa, garage, bảo trì nhà xưởng cho khách hàng B2B tại Việt Nam.",
   alternates: {

@@ -3,7 +3,7 @@ import AdminNav from "@/components/AdminNav";
 import AdminCategoriesClient from "@/components/AdminCategoriesClient";
 
 export const metadata = {
-  title: "Admin chuyên mục | QE Agency Trading",
+  title: "Admin chuyên mục",
 };
 
 export default function AdminCategoriesPage() {
