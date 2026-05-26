@@ -19,23 +19,23 @@ const slides = [
     actionLabel: "Nhận báo giá sỉ tại kho",
   },
   {
-    eyebrow: "Giải pháp định vị chuyên dụng",
-    title: "Hình in sắc nét và chuẩn xác - không lo lệch vị trí, không lem keo!",
-    copy: "Hệ thống keo xịt định vị cao cấp Sprayway 82/84 sở hữu độ bám dính cực cao và khả năng chịu nhiệt sấy Plastisol vượt trội. Giúp cố định vải hoàn hảo trên pallet, triệt tiêu rủi ro lệch hình mà không để lại cặn keo trên bề mặt.",
+    eyebrow: "Sạch kinh ngạc - không chỉ là lời quảng cáo!",
+    title: 'Crazy Clean 031: "Vua" tẩy rửa đa năng',
+    copy: "Đánh bay vết bẩn trong 3 giây. Công nghệ bọt tuyết siêu bám phá vỡ liên kết dầu mỡ, nhựa đường và vết bẩn lâu năm tức thì.",
     bullets: [
-      "Tiết kiệm đến 30% chi phí nhờ giảm tối đa tỷ lệ hàng lỗi, hàng bù",
-      "Tăng tốc độ sản xuất với công thức phun sương dàn đều, giữ độ dính qua hàng chục lượt in",
-      "Chuẩn xuất khẩu: thành phần an toàn, bảo vệ sức khỏe thợ in",
+      "Xịt và lau - không cần rửa lại: tối ưu cho nội thất xe, máy móc công nghiệp và thiết bị văn phòng.",
+      "Không để lại vệt mờ, an toàn cho bề mặt sơn, nhựa, da, kính và kim loại.",
+      "Hiệu quả thấy rõ bằng mắt thường chỉ sau một lần xịt.",
     ],
-    image: "/carousel/img/banner2-2.jfif",
-    imageAlt: "Keo xịt định vị Sprayway 82/84 cho in lưới và in lụa",
+    image: "/assets/01c555b5584a5b4d.jpg",
+    imageAlt: "Chai xịt tẩy rửa đa năng Sprayway Crazy Clean 031",
     href: "/lien-he",
-    actionLabel: "Liên hệ nhận giá sỉ xưởng",
+    actionLabel: "Liên hệ nhận giá sỉ",
   },
   {
     eyebrow: "Gian hàng chính hãng 100% - Ship COD toàn quốc",
     title: "Máy móc êm ru - xế yêu sáng bóng như mới trong một nốt nhạc!",
-    copy: "Đánh bay gỉ sét, triệt tiêu tiếng kêu kẹt kẹt khó chịu và phục hồi nội thất tối màu ngay lập tức với bộ giải pháp bảo dưỡng chuyên nghiệp Sprayway C-60, Interior Cleaner. Hiệu quả thấy rõ bằng mắt thường chỉ sau một lần xịt.",
+    copy: "Đánh bay gỉ sét, triệt tiêu tiếng kêu kẹt khó chịu và phục hồi nội thất tối màu ngay lập tức với bộ giải pháp bảo dưỡng chuyên nghiệp Sprayway C-60, Interior Cleaner. Hiệu quả thấy rõ bằng mắt thường chỉ sau một lần xịt.",
     bullets: [
       "Hiệu quả tức thì: tẩy sạch dầu mỡ bám cặn, nhựa đường và phục hồi da/nhựa bạc màu nhanh chóng",
       "Bảo vệ dài lâu: tạo lớp màng kháng nước, chống oxy hóa bề mặt, ngăn ngừa gỉ sét quay lại",
@@ -44,7 +44,7 @@ const slides = [
     image: "/carousel/img/banner3-a.jfif",
     imageAlt: "Dung dịch bảo dưỡng máy móc Sprayway cho garage",
     href: "/lien-he",
-    actionLabel: "Sắm ngay tại Shopee Mall",
+    actionLabel: "Liên hệ tư vấn",
   },
 ];
 
@@ -69,8 +69,12 @@ export default function HomeCarousel() {
       <div className="container">
         <div className="hero-carousel-shell">
           <div className="hero-carousel-controls" aria-label="Điều hướng carousel">
-            <button type="button" onClick={() => goToSlide(-1)} aria-label="Slide trước">‹</button>
-            <button type="button" onClick={() => goToSlide(1)} aria-label="Slide tiếp theo">›</button>
+            <button type="button" onClick={() => goToSlide(-1)} aria-label="Slide trước">
+              ‹
+            </button>
+            <button type="button" onClick={() => goToSlide(1)} aria-label="Slide tiếp theo">
+              ›
+            </button>
           </div>
 
           <div className="hero-carousel-grid">
@@ -84,8 +88,12 @@ export default function HomeCarousel() {
                 ))}
               </ul>
               <div className="hero-action-row">
-                <Link className="button primary hero-primary-action" href={activeSlide.href}>{activeSlide.actionLabel}</Link>
-                <a className="button hero-secondary-action" href="tel:0901890811">Gọi hotline 0901 890 811</a>
+                <Link className="button primary hero-primary-action" href={activeSlide.href}>
+                  {activeSlide.actionLabel}
+                </Link>
+                <a className="button hero-secondary-action" href="tel:0901890811">
+                  Gọi hotline 0901 890 811
+                </a>
               </div>
             </div>
 
