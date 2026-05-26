@@ -1666,6 +1666,40 @@ body.translated-rtl {
   text-align: left;
 }
 
+.admin-category-row {
+  width: 100%;
+  display: block;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  text-align: left;
+}
+
+.admin-category-row.active {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px rgba(201, 31, 47, 0.12);
+}
+
+.admin-category-row strong,
+.admin-category-row small {
+  display: block;
+}
+
+.admin-category-row strong {
+  margin-bottom: 6px;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.admin-category-row small {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
 .category-create-box {
   display: grid;
   gap: 8px;

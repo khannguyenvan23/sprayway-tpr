@@ -210,7 +210,7 @@ export default function AdminCategoriesClient() {
         <aside className="product-admin-list">
           {filtered.map((category) => (
             <button
-              className={`admin-product-row${selected?.firestoreId === category.firestoreId ? " active" : ""}`}
+              className={`admin-category-row${selected?.firestoreId === category.firestoreId ? " active" : ""}`}
               type="button"
               key={category.firestoreId}
               onClick={() => selectCategory(category)}
