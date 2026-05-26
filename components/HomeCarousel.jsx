@@ -14,6 +14,7 @@ const slides = [
       "Tối ưu chi phí vận hành xưởng lên đến 30%",
     ],
     image: "/carousel/img/banner1.jfif",
+    imageAlt: "Chai xịt tẩy dầu Sprayway cho xưởng may",
     href: "/lien-he",
     actionLabel: "Nhận báo giá sỉ tại kho",
   },
@@ -26,7 +27,8 @@ const slides = [
       "Tăng tốc độ sản xuất với công thức phun sương dàn đều, giữ độ dính qua hàng chục lượt in",
       "Chuẩn xuất khẩu: thành phần an toàn, bảo vệ sức khỏe thợ in",
     ],
-    image: "/carousel/img/banner2.jfif",
+    image: "/carousel/img/banner2.jfif?v=2",
+    imageAlt: "Keo xịt định vị Sprayway 82/84 cho in lưới và in lụa",
     href: "/lien-he",
     actionLabel: "Liên hệ nhận giá sỉ xưởng",
   },
@@ -40,6 +42,7 @@ const slides = [
       "Ưu đãi hấp dẫn: có giá sỉ cho garage và chai nhỏ tiện lợi cho cá nhân tự chăm sóc tại nhà",
     ],
     image: "/carousel/img/banner3.jfif",
+    imageAlt: "Dung dịch bảo dưỡng máy móc Sprayway cho garage",
     href: "/lien-he",
     actionLabel: "Sắm ngay tại Shopee Mall",
   },
@@ -88,7 +91,7 @@ export default function HomeCarousel() {
 
             <div className="hero-carousel-media">
               <div className="hero-carousel-image-frame">
-                <img src={activeSlide.image} alt="Sprayway TPR banner sản phẩm" />
+                <img src={activeSlide.image} alt={activeSlide.imageAlt} />
               </div>
             </div>
           </div>
