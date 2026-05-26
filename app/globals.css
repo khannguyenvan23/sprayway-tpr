@@ -837,15 +837,20 @@ body.translated-rtl {
 }
 
 .field input,
-.field select {
+.field select,
+.field textarea {
   width: 100%;
-  min-height: 42px;
-  padding: 0 12px;
   border: 1px solid var(--line);
   border-radius: 6px;
   background: #fff;
   color: var(--ink);
   font: inherit;
+}
+
+.field input,
+.field select {
+  min-height: 42px;
+  padding: 0 12px;
 }
 
 .active-filters {
@@ -1419,6 +1424,8 @@ body.translated-rtl {
 
 .field textarea {
   min-height: 112px;
+  padding: 10px 12px;
+  line-height: 1.55;
   resize: vertical;
 }
 
@@ -1779,6 +1786,15 @@ body.translated-rtl {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
+}
+
+.product-description-field textarea {
+  min-height: 180px;
+  max-height: 520px;
+}
+
+.product-description-field #product-full {
+  min-height: 260px;
 }
 
 .product-admin-form select {

@@ -388,13 +388,25 @@ export default function AdminProductsClient() {
                 Sản phẩm nổi bật
               </label>
             </div>
-            <div className="field">
+            <div className="field product-description-field">
               <label htmlFor="product-short">Mô tả ngắn</label>
-              <textarea id="product-short" name="shortDescription" value={draft.shortDescription} onChange={updateDraft} />
+              <textarea
+                id="product-short"
+                name="shortDescription"
+                value={draft.shortDescription}
+                onChange={updateDraft}
+                rows={7}
+              />
             </div>
-            <div className="field">
+            <div className="field product-description-field">
               <label htmlFor="product-full">Mô tả chi tiết</label>
-              <textarea id="product-full" name="fullDescription" value={draft.fullDescription} onChange={updateDraft} />
+              <textarea
+                id="product-full"
+                name="fullDescription"
+                value={draft.fullDescription}
+                onChange={updateDraft}
+                rows={10}
+              />
             </div>
             <button className="button primary" type="submit" disabled={isSaving}>
               {isSaving ? "Đang lưu..." : isCreating ? "Tạo sản phẩm" : "Lưu sản phẩm"}
