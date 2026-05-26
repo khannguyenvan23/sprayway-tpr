@@ -149,7 +149,6 @@ export default async function HomePage() {
           <div className="section-head">
             <div>
               <h2 className="section-title">Sản phẩm bán chạy</h2>
-              <p className="section-copy">Các mã được admin chọn là bán chạy nhất, ưu tiên hiển thị cho khách B2B cần báo giá nhanh.</p>
             </div>
             <Link className="button ghost" href="/products">Xem tất cả sản phẩm</Link>
           </div>
@@ -168,7 +167,6 @@ export default async function HomePage() {
           <div className="section-head">
             <div>
               <h2 className="section-title">Sản phẩm nổi bật</h2>
-              <p className="section-copy">Các sản phẩm được admin chọn để giới thiệu nổi bật cho khách hàng cần tư vấn nhanh.</p>
             </div>
             <Link className="button ghost" href="/products">Xem tất cả sản phẩm</Link>
           </div>
