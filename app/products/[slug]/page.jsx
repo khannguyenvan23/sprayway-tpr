@@ -66,7 +66,7 @@ export default async function ProductDetailPage({ params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
-      <section className="section white">
+      <section className="section white product-detail-hero-section">
         <div className="container detail-grid">
           <div className="detail-media">
             <ProductGallery product={product} />

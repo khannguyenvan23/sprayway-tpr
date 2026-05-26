@@ -538,7 +538,11 @@ body.translated-rtl {
 }
 
 .product-detail-content-section {
-  padding-top: 34px;
+  padding-top: 20px;
+}
+
+.product-detail-hero-section {
+  padding-bottom: 24px;
 }
 
 .section-head {
