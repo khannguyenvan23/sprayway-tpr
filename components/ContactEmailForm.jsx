@@ -91,7 +91,7 @@ export default function ContactEmailForm() {
       </label>
 
       <button className="button primary" disabled={isSubmitting} type="submit">
-        {isSubmitting ? "Đang gửi..." : "Gửi email liên hệ"}
+        {isSubmitting ? "Đang gửi..." : "Gửi nhu cầu tư vấn"}
       </button>
 
       {status.message ? (

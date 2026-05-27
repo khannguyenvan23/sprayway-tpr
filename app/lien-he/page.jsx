@@ -40,7 +40,7 @@ export default function ContactPage() {
             </div>
 
             <div className="contact-form-panel">
-              <h2>Form liên hệ qua email</h2>
+              <h2>Gửi nhu cầu tư vấn / báo giá</h2>
               <ContactEmailForm />
             </div>
           </div>
