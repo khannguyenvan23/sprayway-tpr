@@ -3577,7 +3577,7 @@ body.translated-rtl {
 .hero-carousel-grid {
   min-height: 430px;
   display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(320px, 0.86fr);
+  grid-template-columns: minmax(320px, 0.86fr) minmax(0, 0.96fr);
   gap: 0;
   align-items: stretch;
   padding: 0;
@@ -3590,6 +3590,7 @@ body.translated-rtl {
   flex-direction: column;
   justify-content: center;
   padding: 56px 54px;
+  border-left: 1px solid #e2ebd9;
   background: linear-gradient(135deg, #f7faf3, #eef5e8);
 }
 
@@ -3628,14 +3629,31 @@ body.translated-rtl {
 }
 
 .hero-bullets li::before {
-  content: "";
+  content: "✓";
   display: inline-block;
-  width: 6px;
-  height: 6px;
+  width: 18px;
+  height: 18px;
   margin-right: 8px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 18px;
+  text-align: center;
   border-radius: 50%;
   background: #78964a;
-  vertical-align: 2px;
+  vertical-align: 1px;
+}
+
+.hero-certificate {
+  width: fit-content;
+  margin: 0 0 22px;
+  padding: 8px 13px;
+  border: 1px solid #b8cba8;
+  border-radius: 999px;
+  background: #fff;
+  color: #25422d;
+  font-size: 13px;
+  font-weight: 900;
 }
 
 .hero-primary-action {
@@ -3974,16 +3992,31 @@ body.translated-rtl {
 }
 
 .hero-carousel-media {
+  position: relative;
   min-height: 430px;
   display: grid;
   place-items: center;
   border: 0;
-  border-left: 1px solid #e2ebd9;
   border-radius: 0;
   background:
     radial-gradient(circle at 50% 42%, rgba(120, 150, 74, 0.18), transparent 50%),
     #fbfdf8;
   padding: 28px;
+}
+
+.hero-product-badge {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  z-index: 2;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #d21d31;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(210, 29, 49, 0.18);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .hero-carousel-image-frame {
@@ -4004,6 +4037,19 @@ body.translated-rtl {
   display: block;
   object-fit: cover;
   filter: none;
+}
+
+.featured-cleaning-slide .hero-carousel-media {
+  background:
+    radial-gradient(circle at 46% 46%, rgba(120, 150, 74, 0.24), transparent 52%),
+    linear-gradient(135deg, #edf6ea, #f9fdf7);
+}
+
+.featured-cleaning-slide .hero-carousel-image-frame {
+  width: min(88%, 390px);
+  height: 380px;
+  border-color: #cfe0c5;
+  box-shadow: 0 24px 46px rgba(68, 88, 54, 0.18);
 }
 
 .hero-carousel-controls {
@@ -4176,12 +4222,12 @@ body.translated-rtl {
 
   .hero-carousel-copy {
     padding: 44px 34px;
+    border-left: 0;
+    border-top: 1px solid #e2ebd9;
   }
 
   .hero-carousel-media {
     min-height: 320px;
-    border-left: 0;
-    border-top: 1px solid #eef2f7;
   }
 
   .hero-carousel-image-frame {

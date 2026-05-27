@@ -17,6 +17,7 @@ const slides = [
     imageAlt: "Chai xịt tẩy dầu Sprayway cho xưởng may",
     href: "/lien-he",
     actionLabel: "Nhận báo giá sỉ tại kho",
+    hotline: "0901 890 811",
   },
   {
     eyebrow: "Sạch kinh ngạc - không chỉ là lời quảng cáo!",
@@ -31,20 +32,25 @@ const slides = [
     imageAlt: "Chai xịt tẩy rửa đa năng Sprayway Crazy Clean 031",
     href: "/lien-he",
     actionLabel: "Liên hệ nhận giá sỉ",
+    hotline: "0901 890 811",
   },
   {
-    eyebrow: "Gian hàng chính hãng 100% - Ship COD toàn quốc",
-    title: "Máy móc êm ru - xế yêu sáng bóng như mới trong một nốt nhạc!",
-    copy: "Đánh bay gỉ sét, triệt tiêu tiếng kêu kẹt khó chịu và phục hồi nội thất tối màu ngay lập tức với bộ giải pháp bảo dưỡng chuyên nghiệp Sprayway C-60, Interior Cleaner. Hiệu quả thấy rõ bằng mắt thường chỉ sau một lần xịt.",
+    eyebrow: "Best-Seller 2026",
+    title: "Tẩy sạch vết bẩn - nâng tầm chất lượng.",
+    copy: "Dung dịch tẩy điểm thân thiện với môi trường từ Sprayway Singapore.",
     bullets: [
-      "Hiệu quả tức thì: tẩy sạch dầu mỡ bám cặn, nhựa đường và phục hồi da/nhựa bạc màu nhanh chóng",
-      "Bảo vệ dài lâu: tạo lớp màng kháng nước, chống oxy hóa bề mặt, ngăn ngừa gỉ sét quay lại",
-      "Ưu đãi hấp dẫn: có giá sỉ cho garage và chai nhỏ tiện lợi cho cá nhân tự chăm sóc tại nhà",
+      "Hiệu quả: Xử lý sạch 98% vết dầu, mực, ố vàng tức thì.",
+      "An toàn: Công thức tự phân hủy, không độc hại.",
+      "Chuyên nghiệp: Không để lại quầng, không bay màu vải.",
+      "Tối ưu: Tương thích hoàn hảo với súng phun công nghiệp.",
     ],
-    image: "/carousel/img/banner3-a.jfif",
-    imageAlt: "Dung dịch bảo dưỡng máy móc Sprayway cho garage",
+    certificate: "Đạt chuẩn ISO 9001:2008",
+    image: "/carousel/img/banner3-c.jfif",
+    imageAlt: "Dung dịch tẩy điểm Sprayway Singapore cho xưởng may",
     href: "/lien-he",
-    actionLabel: "Liên hệ tư vấn",
+    actionLabel: "Liên hệ ngay để nhận mẫu thử miễn phí cho xưởng của bạn!",
+    hotline: "0902 335 041",
+    featured: true,
   },
 ];
 
@@ -67,7 +73,7 @@ export default function HomeCarousel() {
   return (
     <section className="hero-carousel" aria-label="Giới thiệu giải pháp QE Agency">
       <div className="container">
-        <div className="hero-carousel-shell">
+        <div className={`hero-carousel-shell${activeSlide.featured ? " featured-cleaning-slide" : ""}`}>
           <div className="hero-carousel-controls" aria-label="Điều hướng carousel">
             <button type="button" onClick={() => goToSlide(-1)} aria-label="Slide trước">
               ‹
@@ -78,6 +84,13 @@ export default function HomeCarousel() {
           </div>
 
           <div className="hero-carousel-grid">
+            <div className="hero-carousel-media">
+              <span className="hero-product-badge">{activeSlide.eyebrow}</span>
+              <div className="hero-carousel-image-frame">
+                <img src={activeSlide.image} alt={activeSlide.imageAlt} />
+              </div>
+            </div>
+
             <div className="hero-carousel-copy">
               <div className="eyebrow">{activeSlide.eyebrow}</div>
               <h1>{activeSlide.title}</h1>
@@ -87,19 +100,14 @@ export default function HomeCarousel() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              {activeSlide.certificate ? <div className="hero-certificate">{activeSlide.certificate}</div> : null}
               <div className="hero-action-row">
                 <Link className="button primary hero-primary-action" href={activeSlide.href}>
                   {activeSlide.actionLabel}
                 </Link>
-                <a className="button hero-secondary-action" href="tel:0901890811">
-                  Gọi hotline 0901 890 811
+                <a className="button hero-secondary-action" href={`tel:${activeSlide.hotline.replace(/\s/g, "")}`}>
+                  Hotline: {activeSlide.hotline}
                 </a>
-              </div>
-            </div>
-
-            <div className="hero-carousel-media">
-              <div className="hero-carousel-image-frame">
-                <img src={activeSlide.image} alt={activeSlide.imageAlt} />
               </div>
             </div>
           </div>
