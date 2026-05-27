@@ -28,7 +28,7 @@ const slides = [
       "Không để lại vệt mờ, an toàn cho bề mặt sơn, nhựa, da, kính và kim loại.",
       "Hiệu quả thấy rõ bằng mắt thường chỉ sau một lần xịt.",
     ],
-    image: "/carousel/img/banner3-b.jfif",
+    image: "/carousel/img/banner2-c.jfif",
     imageAlt: "Chai xịt tẩy rửa đa năng Sprayway Crazy Clean 031",
     href: "/lien-he",
     actionLabel: "Liên hệ nhận giá sỉ",
