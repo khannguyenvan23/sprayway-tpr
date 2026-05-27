@@ -40,6 +40,23 @@ function productMatches(product, keyword) {
   return haystack.includes(keyword);
 }
 
+function normalizeImageSrc(src = "") {
+  if (!src) return "";
+  if (src.startsWith("/")) return src;
+
+  try {
+    const url = new URL(src);
+    if (url.protocol === "http:" || url.protocol === "https:") {
+      return `/api/asset?url=${encodeURIComponent(url.toString())}`;
+    }
+  } catch {
+    const file = src.split("/").pop();
+    return file ? `/assets/${file}` : "";
+  }
+
+  return src;
+}
+
 function toSuggestion(product) {
   return {
     id: product.firestoreId || product.id || product.slug,
@@ -49,6 +66,7 @@ function toSuggestion(product) {
     category: repairText(product.category),
     slug: product.slug,
     href: `/products/${product.slug}`,
+    image: normalizeImageSrc(product.image || product.assetPath || ""),
   };
 }
 
@@ -63,6 +81,8 @@ export default function SearchSuggestInput({
   className = "",
 }) {
   const [remoteSuggestions, setRemoteSuggestions] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef(null);
   const keyword = normalizeText(value);
@@ -75,22 +95,34 @@ export default function SearchSuggestInput({
   useEffect(() => {
     if (products?.length || keyword.length < 2) {
       setRemoteSuggestions([]);
+      setIsLoading(false);
+      setHasSearched(false);
       return;
     }
 
     const controller = new AbortController();
     const timer = window.setTimeout(async () => {
+      setIsLoading(true);
+      setHasSearched(false);
       try {
         const response = await fetch(`/api/search-suggestions?q=${encodeURIComponent(value.trim())}`, {
           signal: controller.signal,
         });
-        if (!response.ok) return;
+        if (!response.ok) {
+          setRemoteSuggestions([]);
+          return;
+        }
         const data = await response.json();
         setRemoteSuggestions(data.suggestions || []);
       } catch {
         if (!controller.signal.aborted) setRemoteSuggestions([]);
+      } finally {
+        if (!controller.signal.aborted) {
+          setIsLoading(false);
+          setHasSearched(true);
+        }
       }
-    }, 160);
+    }, 180);
 
     return () => {
       controller.abort();
@@ -110,7 +142,9 @@ export default function SearchSuggestInput({
   }, []);
 
   const suggestions = products?.length ? localSuggestions : remoteSuggestions;
-  const showSuggestions = isOpen && keyword.length >= 2 && suggestions.length > 0;
+  const canShowPanel = isOpen && keyword.length >= 2;
+  const showSuggestions = canShowPanel && suggestions.length > 0;
+  const showEmpty = canShowPanel && !isLoading && hasSearched && suggestions.length === 0;
 
   function selectSuggestion(suggestion) {
     onSelect?.(suggestion);
@@ -121,7 +155,7 @@ export default function SearchSuggestInput({
     <div className={`search-suggest${className ? ` ${className}` : ""}`} ref={wrapperRef}>
       <input
         aria-autocomplete="list"
-        aria-expanded={showSuggestions}
+        aria-expanded={canShowPanel}
         aria-label={ariaLabel}
         autoComplete="off"
         id={id}
@@ -133,20 +167,29 @@ export default function SearchSuggestInput({
         placeholder={placeholder}
         value={value}
       />
-      {showSuggestions ? (
+      {canShowPanel ? (
         <div className="search-suggest-menu" role="listbox">
-          {suggestions.map((suggestion) => (
-            <button
-              key={suggestion.id || suggestion.href}
-              onMouseDown={(event) => event.preventDefault()}
-              onClick={() => selectSuggestion(suggestion)}
-              role="option"
-              type="button"
-            >
-              <strong>{suggestion.name}</strong>
-              <span>{[suggestion.sku, suggestion.brand, suggestion.category].filter(Boolean).join(" - ")}</span>
-            </button>
-          ))}
+          {isLoading ? <div className="search-suggest-status">Đang tìm sản phẩm...</div> : null}
+          {showSuggestions
+            ? suggestions.map((suggestion) => (
+                <button
+                  key={suggestion.id || suggestion.href}
+                  onMouseDown={(event) => event.preventDefault()}
+                  onClick={() => selectSuggestion(suggestion)}
+                  role="option"
+                  type="button"
+                >
+                  <span className="search-suggest-thumb">
+                    {suggestion.image ? <img src={suggestion.image} alt="" /> : null}
+                  </span>
+                  <span className="search-suggest-text">
+                    <strong>{suggestion.name}</strong>
+                    <span>{[suggestion.sku, suggestion.brand, suggestion.category].filter(Boolean).join(" - ")}</span>
+                  </span>
+                </button>
+              ))
+            : null}
+          {showEmpty ? <div className="search-suggest-status">Không tìm thấy sản phẩm phù hợp.</div> : null}
         </div>
       ) : null}
     </div>

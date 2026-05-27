@@ -30,13 +30,14 @@ export default function SiteHeader() {
           <img className="logo-image" src="/logo-01-main.png" alt="QE Agency Vietnam" />
         </Link>
 
-        <form className="header-search" onSubmit={submitSearch}>
+        <form className="header-search" onSubmit={submitSearch} role="search">
           <SearchSuggestInput
             ariaLabel="Tìm kiếm sản phẩm"
+            className="header-search-suggest"
             value={search}
             onChange={setSearch}
             onSelect={openSuggestion}
-            placeholder="Nhập mã, tên, ứng dụng..."
+            placeholder="Nhập tên sản phẩm, SKU, thương hiệu..."
           />
           <button type="submit">Tìm</button>
         </form>
@@ -55,13 +56,14 @@ export default function SiteHeader() {
         </button>
 
         <nav id="primary-nav" className={`nav-list${isOpen ? " open" : ""}`} aria-label="Chính">
-          <form className="mobile-search" onSubmit={submitSearch}>
+          <form className="mobile-search" onSubmit={submitSearch} role="search">
             <SearchSuggestInput
               ariaLabel="Tìm kiếm sản phẩm trên điện thoại"
+              className="header-search-suggest"
               value={search}
               onChange={setSearch}
               onSelect={openSuggestion}
-              placeholder="Nhập mã, tên, ứng dụng..."
+              placeholder="Nhập tên sản phẩm, SKU..."
             />
             <button type="submit">Tìm</button>
           </form>

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCatalog } from "@/lib/catalog";
+import { assetSrc } from "@/lib/product-utils";
 
 function normalizeText(value = "") {
   return repairText(value)
@@ -59,6 +60,7 @@ export async function GET(request) {
       category: repairText(product.category),
       slug: product.slug,
       href: `/products/${product.slug}`,
+      image: assetSrc(product),
     }));
 
   return NextResponse.json({ suggestions });
