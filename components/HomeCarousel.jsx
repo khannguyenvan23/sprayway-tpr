@@ -49,7 +49,7 @@ const slides = [
     imageAlt: "Dung dịch tẩy điểm Sprayway Singapore cho xưởng may",
     href: "/lien-he",
     actionLabel: "Liên hệ ngay để nhận mẫu thử miễn phí cho xưởng của bạn!",
-    hotline: "0902 335 041",
+    hotline: "0901 890 811",
     featured: true,
   },
 ];
